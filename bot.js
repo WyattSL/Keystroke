@@ -29,5 +29,7 @@ client.on('message', (msg) => {
     }
   } else if (msg.content.startsWith("?new")) {
     msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
+    
+    
   }
 });
