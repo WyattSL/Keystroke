@@ -50,6 +50,27 @@ client.on('message', (msg) => {
     embed.setDescription(tosay);
     embed.setFooter(process.env.FOOTER);
     embed.setColor(0x000000);
+    ch.send(embed);
+  } else if (msg.content.startsWith("?kick")) {
+    var tu = msg.mentions.users.first();
+    var embed = new RichEmbed;
+    embed.setTitle('Punishment');
+    embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
+    embed.setDescription('Kicking ' + tu) // xd
+    embed.setFooter(process.env.FOOTER);
+    embed.setColor(0xFF0000);
+    msg.channel.send(embed);
+    tu.kick();
+  } else if (msg.content.startsWith("?ban")) {
+    var tu = msg.mentions.users.first();
+    var embed = new RichEmbed;
+    embed.setTitle('Punishment');
+    embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
+    embed.setDescription('Kicking ' + tu) // xd
+    embed.setFooter(process.env.FOOTER);
+    embed.setColor(0xFF0000);
+    msg.channel.send(embed);
+    tu.kick();
   }
 });
 
