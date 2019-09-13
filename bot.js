@@ -28,8 +28,16 @@ client.on('message', (msg) => {
       msg.channel.send("This is not an ticket channel!")
     }
   } else if (msg.content.startsWith("?new")) {
+    var tr = msg.guilds.roles.find(r => r.name === "TicketRole");
+    if (!tr) {
+      msg.guild.createRole({ name: "TicketRole" }, "Ticket Bot Setup");
+      msg.guild.owner.send('I have automatically created a role named "TicketRole". This role should be given to staff members to view tickets.');
+    }
+    var tc = msg.guilds.channels.find(ch => ch.name === "tickets" && ch.type === "category");
+    if (!tc) {
+      msg.guild.createChannel("tickets", {type: "category"})
+    }
     msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
     
-     vn   w
   }
 });
