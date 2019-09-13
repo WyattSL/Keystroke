@@ -1,4 +1,6 @@
 require('./ZontServer.js');
+require('./roadpvp.js');
+
 // server.js
 // where your node app starts
 
@@ -47,13 +49,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/bot/*', function(req, res) {
-  var bn = req.url.split('/')[3]
+  var bn = req.url.split('/')[2];
+  console.log(bn);
   var rl = process.env["INV_"+bn];
-  if (!rl) {
-    res.sendFile(__dirname + "/views/404.html");
-  } else {
-    res.redirect(rl);
-  }
+  res.redirect(rl);
 });
 
 // listen for requests :)

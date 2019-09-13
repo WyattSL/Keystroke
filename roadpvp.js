@@ -66,12 +66,19 @@ client.on('message', (msg) => {
     var embed = new RichEmbed;
     embed.setTitle('Punishment');
     embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
-    embed.setDescription('Kicking ' + tu) // xd
+    embed.setDescription('Banning ' + tu) // xd
     embed.setFooter(process.env.FOOTER);
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
-    tu.kick();
+    tu.ban();
   }
+});
+
+client.on('guildMemberAdd', (m) => {
+  var tr = m.guild.roles.find(r => r.name === "<!> Player <!>");
+  if (tr) {
+    m.addRole(tr, "AutoRank");
+  };
 });
 
 
