@@ -23,11 +23,11 @@ client.on('message', (msg) => {
   } else if (msg.content.startsWith('?close')) {
     if (msg.channel.name.startsWith('ticket-')) {
       msg.channel.delete();
-      msg.topic.send("Your ticket has been closed by " + msg.member.displayName + ".")
+      msg.guild.members.find(m => m.username === msg.channel.topic).send("Your ticket has been closed by " + msg.member.displayName + ".")
     } else {
       msg.channel.send("This is not an ticket channel!")
     }
   } else if (msg.content.startsWith("?new")) {
-    msg.guild.createChannel("")
+    msg.guild.createChannel("ticket-" + msg.author.username);
   }
 });
