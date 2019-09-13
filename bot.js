@@ -10,6 +10,7 @@ client.on('message', (msg) => {
   if (msg.author.bot) return;
   if (msg.content.startsWith('?report')) {
     var ch = msg.guild.channels.find(ch => ch.name === 'reports');
+    msg.delete();
     var user = msg.mentions.users.first();
     var reason = msg.content
     var embed = new RichEmbed;
@@ -18,9 +19,15 @@ client.on('message', (msg) => {
     embed.setDescription(reason);
     embed.setFooter(process.env.footer);
     ch.send(embed);
+    msg.channel.send("Your report has been submitted.")
   } else if (msg.content.startsWith('?close')) {
     if (msg.channel.name.startsWith('ticket-')) {
       msg.channel.delete();
+      msg.topic.send("Your ticket has been closed by " + msg.member.displayName + ".")
+    } else {
+      msg.channel.send("This is not an ticket channel!")
     }
+  } else if (msg.content.startsWith("?new")) {
+    msg.guild.createChannel("")
   }
 });
