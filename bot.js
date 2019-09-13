@@ -28,6 +28,6 @@ client.on('message', (msg) => {
       msg.channel.send("This is not an ticket channel!")
     }
   } else if (msg.content.startsWith("?new")) {
-    msg.guild.createChannel("ticket-" + msg.author.username, { type: "text"});
+    msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
   }
 });
