@@ -44,8 +44,11 @@ client.on('message', (msg) => {
     msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
     msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
   } else if (msg.content.startsWith("?say")) {
-    var tosay = msg.content.slice()
+    var tosay = msg.content.slice(5, msg.content.length);
     msg.delete();
-    msg.channel.send("")
+    msg.channel.send(tosay)
   }
 });
+
+
+client.login(process.env.ZontServer);
