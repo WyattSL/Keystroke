@@ -42,8 +42,18 @@ db.serialize(function(){
   }
 });
 
-app.get('/bot/', function(req, res) {
-        
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/bot/*', function(req, res) {
+  var bn = req.url.split('/')[3]
+  var rl = process.env["INV_"+bn];
+  if (!rl) {
+    res.sendFile(__dirname + "/views/404.html");
+  } else {
+    res.redirect(rl);
+  }
 });
 
 // listen for requests :)
