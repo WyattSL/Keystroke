@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { Client, RichEmbed } = require('discord.js')
+const { Client, RichEmbed } = require('discord.js');
+const customSQL = require('./mysql.js')
 
 client.on('ready', () => {
   console.log('ready')
@@ -25,11 +26,11 @@ client.on('message', (msg) => {
     }
     var tc = msg.guilds.channels.find(ch => ch.name === "tickets" && ch.type === "category");
     if (!tc) {
-      msg.guild.createChannel("tickets", "category", [{ allow: ["VIEW_CHANNEL", "SEND_MESSAGES"], id: `${tr.id}` }, {}]);
+      msg.guild.createChannel("tickets", "category", [{ allow: ["VIEW_CHANNEL", "SEND_MESSAGES"], id: `${tr.id}` }]);
       msg.guild.owner.send('I have automatically created a category channel named "Tickets". This channel is where all tickets will be stored.');
       var tc = msg.guilds.channels.find(ch => ch.name === "tickets" && ch.type === "category");
     }
-    msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
+    msg.guild.createChannel("ticket-" + msg.author.username, "text", [{ allow: ["VIEW_CHANNEL", "SEND_MESSAGES"], id: `${msg.author.id}`}]);
     msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
   } else if (msg.content.startsWith("?say")) {
     var tosay = msg.content.slice(5, msg.content.length);
@@ -71,7 +72,7 @@ client.on('message', (msg) => {
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
     tu.ban();
-  }
+  } else if (msg.content.startsWith("?warn"))
 });
 
 client.on('guildMemberAdd', (m) => {
