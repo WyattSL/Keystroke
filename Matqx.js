@@ -72,7 +72,11 @@ client.on('message', (msg) => {
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
     tu.ban();
-  } else if (msg.content.startsWith("?warn"))
+  } else if (msg.content.startsWith("?warn")) {
+    var tu = msg.mentions.users.first();
+    var ti = tu.id;
+    var reason = 
+  };
 });
 
 client.on('guildMemberAdd', (m) => {

@@ -12,3 +12,12 @@ exports.code = function (code) {
   db.run(code);
   console.log('executed');
 };
+
+exports.get = function(table, query) {
+  db.all(`SELECT * FROM ${table} WHERE ${query}`, function(err, rows) {
+    if (err) throw err;
+    if (rows) {
+      return(JSON.stringify(rows));
+    }
+  });
+};
