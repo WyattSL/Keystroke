@@ -1,5 +1,6 @@
 const { Client, RichEmbed } = require('discord.js');
 const gl = require('./global.json');
+const cmdlist = require('./commands.json');
 
 exports.ready = function(b, c) {
   if (!b || !c) return false;
@@ -39,11 +40,13 @@ exports.help = function(b, c) {
   var e = new RichEmbed().setColor(0x000000)
   .setFooter(`Job Request by ${d.owner}`)
   .setTitle('Help')
-  .setDescription(`Bot ID ${b} | Bot Uptime ${format} | For assistance please contact WyattL#3477`)
+  .setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${format} | For assistance please contact WyattL#3477`);
+  e.addField(`Keystroke`, `This bot was made by WyattL | To request an bot, goto https://keystroke.glitch.me/`, true);
+  e.addField(`Changelog`, `${gl.changelog}`)
   var commands = d.commands;
   var i;
   for (i=0;i<commands.length;i++) {
     var cmd = commands[i];
-    if (!cmd) 
-  }
+    e.addField(`${cmd}`,  `${cmdlist[i]}`, true);
+  };
 }
