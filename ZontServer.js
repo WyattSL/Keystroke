@@ -49,6 +49,8 @@ client.on('message', (msg) => {
     var tosay = msg.content.slice(5, msg.content.length);
     msg.delete();
     msg.channel.send(tosay)
+  } else if (msg.content.startsWith("?help")) { 
+    msg.channel.send(global.help("Matqx", client))
   }
 });
 

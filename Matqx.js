@@ -146,7 +146,9 @@ client.on('message', (msg) => {
     .setFooter(process.env.FOOTER)
     .setDescription(`<${ti}> has been unmuted!`);
     msg.channel.send(e);
-  };
+  } else if (msg.content.startsWith("?help")) { 
+    msg.channel.send(global.help("Matqx", client))
+  }
 });
 
 

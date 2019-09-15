@@ -74,6 +74,8 @@ client.on('message', (msg) => {
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
     tu.ban();
+  } else if (msg.content.startsWith("?help")) { 
+    msg.channel.send(global.help("Matqx", client))
   }
 });
 

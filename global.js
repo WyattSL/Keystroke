@@ -42,11 +42,12 @@ exports.help = function(b, c) {
   .setTitle('Help')
   .setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${format} | For assistance please contact WyattL#3477`);
   e.addField(`Keystroke`, `This bot was made by WyattL | To request an bot, goto https://keystroke.glitch.me/`, true);
-  e.addField(`Changelog`, `${gl.changelog}`)
+  e.addField(`Changelog`, `${gl.changelog}`, true)
   var commands = d.commands;
   var i;
   for (i=0;i<commands.length;i++) {
     var cmd = commands[i];
-    e.addField(`${cmd}`,  `${cmdlist[i]}`, true);
+    e.addField(`${cmd}`,  `${cmdlist[cmd]}`, false);
   };
+  return e;
 }
