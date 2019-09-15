@@ -5,6 +5,9 @@ const db = new sqlite3.Database(dbFile);
 
 db.serialize();
 
+// TABLE LIST
+// warns ("server" LONGINT, "user" LONGINT, "reason" LONGTEXT, "by" LONGTEXT, "time" LONGINT)
+
 
 
 exports.code = function (code) {
@@ -20,4 +23,11 @@ exports.get = function(table, query) {
       return(JSON.stringify(rows));
     }
   });
+};
+
+exports.insert = function(table, data) {
+  if (!table || !data) return false;
+  var inserts = [];
+  var i;
+  for (i=0; i<data.split
 };
