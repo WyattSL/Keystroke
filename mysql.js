@@ -27,7 +27,18 @@ exports.get = function(table, query) {
 
 exports.insert = function(table, data) {
   if (!table || !data) return false;
-  var inserts = [];
+  var da = data.split("^");
+  var insert = `(`
   var i;
-  for (i=0; i<data.split
+  for (i=0; i<da.length; i++) {
+    var d = da[i];
+    if (i-1 == da.length) {
+      var insert = `"${d}")`;
+    } else {
+      var insert = insert + `"${d}", `;
+    };
+    if (!insert) return false;
+    db.insert(`INSERT INTO ${table} ${insert}`);
+    return true;
+  };
 };

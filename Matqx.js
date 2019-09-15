@@ -4,7 +4,11 @@ const { Client, RichEmbed } = require('discord.js');
 const SQL = require('./mysql.js')
 
 client.on('ready', () => {
-  console.log('ready')
+  if (client.guilds.array().length < 1) {
+    console.log(`Keystroke Bot Ready | Logged in as ${client.user.username}#${client.user.discriminator} with no servers.`);
+  } else {
+    console.log(`Keystroke Bot Ready | Logged in as ${client.user.username}#${client.user.discriminator} with ${client.guilds.array().length} the first one being ${client.guilds.first().name}`)
+  }
 });
 
 client.on('message', (msg) => {
@@ -92,4 +96,4 @@ client.on('guildMemberAdd', (m) => {
 });
 
 
-client.login(process.env.roadpvp);
+client.login(process.env.matqx);
