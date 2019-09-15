@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { Client, RichEmbed } = require('discord.js');
-const SQL = require('./mysql.js')
+const SQL = require('./mysql.js');
+const global = require('./global.js')
 
 client.on('ready', () => {
   if (client.guilds.array().length < 1) {
@@ -11,8 +12,23 @@ client.on('ready', () => {
   }
 });
 
-function (ch) {
-  
+function noPerm(ch) {
+  var e = new RichEmbed()
+  .setTitle(`Error`)
+  .setColor(0xFF0000)
+  .setFooter(process.env.FOOTER)
+  .setDescription(`You are lacking permission to perform this action!`);
+  ch.send(e);
+};
+
+function checkPerm(m, p, ch) {
+  if (!m || !p) return false;
+  if (m.hasPermission(p, false, true, true)) {
+    return true;
+  } else {
+    noPerm(ch);
+    return false;
+  }
 };
 
 client.on('message', (msg) => {
@@ -40,10 +56,6 @@ client.on('message', (msg) => {
     }
     msg.guild.createChannel("ticket-" + msg.author.username, "text", [{ allow: ["VIEW_CHANNEL", "SEND_MESSAGES"], id: `${msg.author.id}`}]);
     msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
-  } else if (msg.content.startsWith("?say")) {
-    var tosay = msg.content.slice(5, msg.content.length);
-    msg.delete();
-    msg.channel.send(tosay)
   } else if (msg.content.startsWith("?announce")) {
     var tosay = msg.content.slice(10, msg.content.length);
     msg.delete();
@@ -53,6 +65,7 @@ client.on('message', (msg) => {
       msg.guild.owner.send('I have automatically created a text channel named "Announcements". Announcements will be sent there.');
       var ch = msg.channels.find(ch => ch.name === "announcements");
     };
+    if (!checkPerm(msg.member, "MANAGE_CHANNELS", msg.channel)) return;
     var embed = new RichEmbed;
     embed.setTitle('Announcement');
     embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
@@ -61,6 +74,7 @@ client.on('message', (msg) => {
     embed.setColor(0x000000);
     ch.send(embed);
   } else if (msg.content.startsWith("?kick")) {
+    if (!checkPerm(msg.member, "KICK_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var embed = new RichEmbed;
     embed.setTitle('Punishment');
@@ -71,6 +85,7 @@ client.on('message', (msg) => {
     msg.channel.send(embed);
     tu.kick();
   } else if (msg.content.startsWith("?ban")) {
+    if (!checkPerm(msg.member, "BAN_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var embed = new RichEmbed;
     embed.setTitle('Punishment');
@@ -81,6 +96,7 @@ client.on('message', (msg) => {
     msg.channel.send(embed);
     tu.ban();
   } else if (msg.content.startsWith("?warn")) {
+    if (!checkPerm(msg.member, "KICK_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var ti = tu.id;
     var reason = msg.content.slice(6, msg.content.length);
@@ -97,6 +113,7 @@ client.on('message', (msg) => {
     .setDescription(`<${ti}> has been warned for ${reason}!`);
     msg.channel.send(e);
   } else if (msg.content.startsWith("?mute")) {
+    if (!checkPerm(msg.member, "MUTE_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var ti = tu.id;
     var ii = msg.author.id;
@@ -115,6 +132,7 @@ client.on('message', (msg) => {
     .setDescription(`<${ti}> has been muted!`);
     msg.channel.send(e);
   } else if (msg.content.startsWith("?mute")) {
+    if (!checkPerm(msg.member, "MUTE_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var ti = tu.id;
     var ii = msg.author.id;

@@ -1,0 +1,12 @@
+{
+  "commands": [
+    "mute",
+    "unmute",
+    "ban",
+    "kick",
+    "warn",
+    "announce",
+    "new",
+    "close"
+  ]
+}
