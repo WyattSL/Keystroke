@@ -106,18 +106,18 @@ client.on('message', (msg) => {
     .setColor(0xFF0000)
     .setAuthor(msg.member.displayName, msg.author.avatarURL)
     .setFooter(process.env.FOOTER)
-    .setDescription(`<${ti}> has been warned for ${reason}!`);
+    .setDescription(`<@${ti}> has been warned for ${reason}!`);
     msg.channel.send(e);
   } else if (msg.content.startsWith("?mute")) {
     if (!checkPerm(msg.member, "MUTE_MEMBERS", msg.channel)) return;
-    var tu = msg.mentions.users.first();
+    var tu = msg.mentions.members.first();
     var ti = tu.id;
     var ii = msg.author.id;
     var tr = msg.guild.roles.find(r => r.name === "Muted");
     if (!tr) {
       msg.guild.createRole({ name: "Muted", hoist: false, mentionable: false, permissions: 68224000 }, "Mute Setup");
       msg.guild.owner.send('I have automatically created a role named "Muted". Muted players will have this role. It currently has basic permissions, you should verify these.');
-      var tr = msg.guilds.roles.find(r => r.name === "Muted");
+      var tr = msg.guild.roles.find(r => r.name === "Muted");
     };
     tu.addRole(tr, "Muted by " + msg.member.displayName);
     var e = new RichEmbed()
@@ -125,11 +125,11 @@ client.on('message', (msg) => {
     .setColor(0xFF0000)
     .setAuthor(msg.member.displayName, msg.author.avatarURL)
     .setFooter(process.env.FOOTER)
-    .setDescription(`<${ti}> has been muted!`);
+    .setDescription(`<@${ti}> has been muted!`);
     msg.channel.send(e);
-  } else if (msg.content.startsWith("?mute")) {
+  } else if (msg.content.startsWith("?unmute")) {
     if (!checkPerm(msg.member, "MUTE_MEMBERS", msg.channel)) return;
-    var tu = msg.mentions.users.first();
+    var tu = msg.mentions.members.first();
     var ti = tu.id;
     var ii = msg.author.id;
     var tr = msg.guild.roles.find(r => r.name === "Muted");
@@ -144,7 +144,7 @@ client.on('message', (msg) => {
     .setColor(0xFF0000)
     .setAuthor(msg.member.displayName, msg.author.avatarURL)
     .setFooter(process.env.FOOTER)
-    .setDescription(`<${ti}> has been unmuted!`);
+    .setDescription(`<@${ti}> has been unmuted!`);
     msg.channel.send(e);
   } else if (msg.content.startsWith("?help")) { 
     msg.channel.send(global.help("Matqx", client))
