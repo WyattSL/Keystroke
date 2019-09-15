@@ -28,17 +28,19 @@ exports.get = function(table, query) {
 exports.insert = function(table, data) {
   if (!table || !data) return false;
   var da = data.split("^");
+  console.log(da + " " + da.length)
   var insert = `(`
   var i;
   for (i=0; i<da.length; i++) {
     var d = da[i];
-    if (i-1 == da.length) {
+    if (i+1 == da.length) {
       var insert = `"${d}")`;
     } else {
       var insert = insert + `"${d}", `;
     };
     if (!insert) return false;
-    db.insert(`INSERT INTO ${table} ${insert}`);
+    console.log(insert);
+    db.run(`INSERT INTO ${table} ${insert}`);
     return true;
   };
 };

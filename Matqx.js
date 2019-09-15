@@ -99,7 +99,7 @@ client.on('message', (msg) => {
     var gi = msg.guild.id;
     var ii = msg.author.id;
     var d = new Date();
-    var ts = d.now();
+    var ts = d.valueOf();
     SQL.insert("warns", `${gi}^${ti}^${reason}^{ii}^{ts}`);
     var e = new RichEmbed()
     .setTitle(`Punishment`)
