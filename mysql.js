@@ -52,7 +52,7 @@ exports.insert = function(table, data) {
   };
   if (!insert) return false;
   console.log(insert);
-  db.run(`INSERT INTO ${table} ${insert}`);
+  db.run(`INSERT INTO ${table} VALUES ${insert}`);
   return true;
 };
 
