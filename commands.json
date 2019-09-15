@@ -1,4 +1,6 @@
 {
   "mute": "Prevent an user for speaking.",
-  "unmute": "Allow an muted user to speak."
+  "unmute": "Allow an muted user to speak.",
+  "warn": "Warn a user for something, like violating the rules.",
+  ""
 }

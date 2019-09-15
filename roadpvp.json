@@ -1,13 +1,11 @@
 {
   "mode": "ONLINE",
   "status": "PLAYING",
-  "game": "With Matqx",
+  "game": "With DarkFireMage",
   "commands": [
-    "mute",
-    "unmute",
+    "say",
     "ban",
     "kick",
-    "warn",
     "announce",
     "new",
     "close"

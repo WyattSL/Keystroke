@@ -1,13 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { Client, RichEmbed } = require('discord.js')
+const { Client, RichEmbed } = require('discord.js');
+const SQL = require('./mysql.js');
+const global = require('./global.js');
 
 client.on('ready', () => {
-  if (client.guilds.array().length < 1) {
-    console.log(`Keystroke Bot Ready | Logged in as ${client.user.username}#${client.user.discriminator} with no servers.`);
-  } else {
-    console.log(`Keystroke Bot Ready | Logged in as ${client.user.username}#${client.user.discriminator} with ${client.guilds.array().length} the first one being ${client.guilds.first().name}`)
-  }
+  global.ready("Matqx", client)
 });
 
 
