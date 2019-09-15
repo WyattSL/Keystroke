@@ -95,12 +95,12 @@ client.on('message', (msg) => {
     if (!checkPerm(msg.member, "KICK_MEMBERS", msg.channel)) return;
     var tu = msg.mentions.users.first();
     var ti = tu.id;
-    var reason = msg.content.slice(6, msg.content.length);
+    var reason = msg.content.slice(28, msg.content.length);
     var gi = msg.guild.id;
     var ii = msg.author.id;
     var d = new Date();
     var ts = d.valueOf();
-    SQL.insert("warns", `${gi}^${ti}^${reason}^{ii}^{ts}`);
+    SQL.insert("warns", `${gi}^${ti}^${reason}^${ii}^${ts}`);
     var e = new RichEmbed()
     .setTitle(`Punishment`)
     .setColor(0xFF0000)
