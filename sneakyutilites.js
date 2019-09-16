@@ -99,22 +99,22 @@ client.on('message', (msg) => {
     ch.send(embed);
   } else if (msg.content.startsWith("?kick")) {
     if (!checkPerm(msg.member, "KICK_MEMBERS", msg.channel)) return;
-    var tu = msg.mentions.users.first();
+    var tu = msg.mentions.members.first();
     var embed = new RichEmbed;
     embed.setTitle('Punishment');
     embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
-    embed.setDescription('Kicking ' + tu) // xd
+    embed.setDescription('Kicking ' + tu)
     embed.setFooter(process.env.FOOTER);
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
     tu.kick();
   } else if (msg.content.startsWith("?ban")) {
     if (!checkPerm(msg.member, "BAN_MEMBERS", msg.channel)) return;
-    var tu = msg.mentions.users.first();
+    var tu = msg.mentions.members.first();
     var embed = new RichEmbed;
     embed.setTitle('Punishment');
     embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
-    embed.setDescription('Banning ' + tu) // xd
+    embed.setDescription('Banning ' + tu)
     embed.setFooter(process.env.FOOTER);
     embed.setColor(0xFF0000);
     msg.channel.send(embed);
@@ -147,7 +147,7 @@ client.on('message', (msg) => {
       msg.guild.owner.send('I have automatically created a role named "Muted". Muted players will have this role. It currently has basic permissions, you should verify these.');
       var tr = msg.guild.roles.find(r => r.name === "Muted");
     };
-    tu.addRole(tr, "Muted by " + msg.member.displayName);
+    tu.addRole(tr, "Muted by " + msg.member.displayName).catch();
     var e = new RichEmbed()
     .setTitle(`Punishment`)
     .setColor(0xFF0000)
@@ -166,7 +166,7 @@ client.on('message', (msg) => {
       msg.guild.owner.send('I have automatically created a role named "Muted". Muted players will have this role. It currently has basic permissions, you should verify these.');
       var tr = msg.guilds.roles.find(r => r.name === "Muted");
     };
-    tu.removeRole(tr, "Unmuted by " + msg.member.displayName);
+    tu.removeRole(tr, "Unmuted by " + msg.member.displayName).catch();
     var e = new RichEmbed()
     .setTitle(`Punishment`)
     .setColor(0xFF0000)
