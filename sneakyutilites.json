@@ -1,13 +1,16 @@
 {
-  "owner": "DarkFireMage",
+  "owner": "Sneakyzakki",
   "mode": "ONLINE",
   "status": "PLAYING",
-  "game": "With DarkFireMage",
+  "game": "With Sneakyzakki",
   "commands": [
     "say",
     "ban",
     "kick",
     "announce",
+    "warn",
+    "mute",
+    "unmute",
     "new",
     "close"
   ]

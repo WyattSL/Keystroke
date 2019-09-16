@@ -1,6 +1,7 @@
 require('./ZontServer.js');
 require('./roadpvp.js');
 require('./Matqx.js');
+require('./sneakyutilites.js');
 
 // server.js
 // where your node app starts

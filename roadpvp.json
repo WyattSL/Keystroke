@@ -6,6 +6,9 @@
   "commands": [
     "say",
     "ban",
+    "warn",
+    "mute",
+    "unmute",
     "kick",
     "announce",
     "new",
