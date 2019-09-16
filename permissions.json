@@ -4,6 +4,5 @@
   "mute": "MUTE_MEMBERS",
   "unmute": "MUTE_MEMBERS",
   "warn": "KICK_MEMBERS",
-  "announce": "MANAGE_MESSAGES",
-  
+  "announce": "MANAGE_MESSAGES"
 }
