@@ -9,7 +9,8 @@ exports.ready = function(b, c) {
     var s = d.status;
     var m = d.mode;
     var g = d.game;
-    c.user.setPresence({ game: { name: g, type: s }, status: m });
+    c.user.setPresence({ game: { name: g, type: s }});
+    c.user.setStatus(m);
     if (c.guilds.array().length < 1) {
       console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with no servers.`);
     } else {
@@ -17,7 +18,9 @@ exports.ready = function(b, c) {
     };
     return true;
   } else {
-    c.user.setPresence({ game: { name: gl.disablemsg, type: "PLAYING" }, status: "DnD" })
+    c.user.setPresence({ game: { name: gl.disablemsg, type: "PLAYING" }});
+    c.user.setStatus('dnd');
+    console.warn(`[WARNING] Test Mode Active, Bot ${c.user.username} is no longer responding to commands.`)
   }
 };
 
