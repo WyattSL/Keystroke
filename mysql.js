@@ -5,6 +5,9 @@ const db = new sqlite3.Database(dbFile);
 
 db.serialize();
 
+
+const sc = require('./sqlchar.json');
+
 // TABLE LIST
 // warns ("server" LONGINT, "user" LONGINT, "reason" LONGTEXT, "by" LONGTEXT, "time" LONGINT)
 
@@ -27,6 +30,10 @@ exports.get = function(table, query) {
 
 exports.insert = function(table, data) {
   if (!table || !data) return false;
+  var i;
+  for (i=0; i<sc.length; i++) {
+    data.replace(/sc[i]/g, )
+  };
   var da = data.split("^");
   var insert = `(`
   var i;
