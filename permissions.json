@@ -1,0 +1,9 @@
+{
+  "ban": "BAN_MEMBERS",
+  "kick": "KICK_MEMBERS",
+  "mute": "MUTE_MEMBERS",
+  "unmute": "MUTE_MEMBERS",
+  "warn": "KICK_MEMBERS",
+  "announce": "MANAGE_MESSAGES",
+  
+}
