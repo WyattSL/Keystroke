@@ -25,21 +25,9 @@ exports.get = function(table, query) {
   });
 };
 
-// Relative Data
-
-// TABLE FORMAT: warns ("server" LONGINT, "user" LONGINT, "reason" LONGTEXT, "by" LONGTEXT, "time" LONGINT)
-// VALUE OF "INSERT" IN CONSOLE.LOG: ("288100334084030465", "270035320894914560", "Test Reason", "270035320894914560", "1568590232875");
-// VALUE OF DA IN CONSOLE.LOG: 288100334084030465,270035320894914560,Test Reason,270035320894914560,1568590232875
-// LENGTH OF DA IN CONSOLE.LOG: 5
-
-// VALUE OF TABLE ON RUN: warns
-// VALUE OF DATA ON RUN: 288100334084030465^270035320894914560^Test Reason^270035320894914560^1568590371980
-
 exports.insert = function(table, data) {
   if (!table || !data) return false;
-  console.log(table + " " + data)
   var da = data.split("^");
-  console.log(da + " " + da.length)
   var insert = `(`
   var i;
   for (i=0; i<da.length; i++) {
@@ -51,16 +39,6 @@ exports.insert = function(table, data) {
     };
   };
   if (!insert) return false;
-  console.log(insert);
   db.run(`INSERT INTO ${table} VALUES ${insert}`);
   return true;
 };
-
-// SQL ERROR
-/*
-events.js:183
-      throw er; // Unhandled 'error' event
-      ^
-
-Error: SQLITE_ERROR: near ";": syntax error
-*/
