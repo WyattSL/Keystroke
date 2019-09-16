@@ -1,0 +1,14 @@
+{
+  "owner": "DarkFireMage",
+  "mode": "ONLINE",
+  "status": "PLAYING",
+  "game": "With DarkFireMage",
+  "commands": [
+    "say",
+    "ban",
+    "kick",
+    "announce",
+    "new",
+    "close"
+  ]
+}

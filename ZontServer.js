@@ -33,12 +33,17 @@ client.on('message', (msg) => {
   if (msg.author.bot) return;
   if (msg.content.startsWith('?report')) {
     var ch = msg.guild.channels.find(ch => ch.name === 'reports');
+    if (!ch) {
+      msg.guild.createChannel("reports", {type: "text"});
+      msg.guild.owner.send('I have automatically created a text channel named "Reports". This channel is where all reports will be stored. This channel currently has no permissions. Please configure them.');
+      var ch = msg.guild.channels.find(ch => ch.name === "reports" && ch.type === "text");
+    }
     msg.delete();
     var user = msg.mentions.users.first();
     var reason = msg.content
     var embed = new RichEmbed;
     embed.setTitle('New Report');
-    embed.setAuthor(msg.member.displayName, msg.user.avatarURL);
+    embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
     embed.setDescription(reason);
     embed.setFooter(process.env.footer);
     ch.send(embed);
@@ -75,11 +80,11 @@ client.on('message', (msg) => {
   }else if (msg.content.startsWith("?announce")) {
     var tosay = msg.content.slice(10, msg.content.length);
     msg.delete();
-    var ch = msg.channels.find(ch => ch.name === "announcements");
+    var ch = msg.guild.channels.find(ch => ch.name === "announcements");
     if (!ch) {
       msg.guild.createChannel("announcements", { type: "text", topic: "News Updates!", nsfw: false });
       msg.guild.owner.send('I have automatically created a text channel named "Announcements". Announcements will be sent there.');
-      var ch = msg.channels.find(ch => ch.name === "announcements");
+      var ch = msg.guild.channels.find(ch => ch.name === "announcements");
     };
     if (!checkPerm(msg.member, "MANAGE_CHANNELS", msg.channel)) return;
     var embed = new RichEmbed;
