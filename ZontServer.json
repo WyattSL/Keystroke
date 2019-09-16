@@ -6,6 +6,7 @@
   "commands": [
     "report",
     "new",
-    "close"
+    "close",
+    "say"
   ]
 }
