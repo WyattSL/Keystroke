@@ -42,7 +42,7 @@ client.on('message', (msg) => {
     if (!tr) {
       msg.guild.createRole({ name: "TicketRole" }, "Ticket Bot Setup");
       msg.guild.owner.send('I have automatically created a role named "TicketRole". This role should be given to staff members to view tickets.');
-      var tr = msg.guilds.roles.find(r => r.name === "TicketRole");
+      var tr = msg.guildshttps://glitch.com/edit/keystroke.roles.find(r => r.name === "TicketRole");
     }
     var tc = msg.guilds.channels.find(ch => ch.name === "tickets" && ch.type === "category");
     if (!tc) {
