@@ -4,6 +4,27 @@ const { Client, RichEmbed } = require('discord.js');
 const SQL = require('./mysql.js');
 const global = require('./global.js');
 
+
+function noPerm(ch) {
+  var e = new RichEmbed()
+  .setTitle(`Error`)
+  .setColor(0xFF0000)
+  .setFooter(process.env.FOOTER)
+  .setDescription(`You are lacking permission to perform this action!`);
+  ch.send(e);
+};
+
+function checkPerm(m, p, ch) {
+  if (!m || !p) return false;
+  if (m.hasPermission(p, false, true, true)) {
+    return true;
+  } else {
+    noPerm(ch);
+    return false;
+  }
+};
+
+
 client.on('ready', () => {
   global.ready("ZontServer", client)
 });
@@ -25,7 +46,7 @@ client.on('message', (msg) => {
   } else if (msg.content.startsWith('?close')) {
     if (msg.channel.name.startsWith('ticket-')) {
       msg.channel.delete();
-      msg.guild.members.find(m => m.username === msg.channel.topic).send("Your ticket has been closed by " + msg.member.displayName + ".")
+      msg.guild.members.find(m => m.user.username === msg.channel.topic).send("Your ticket has been closed by " + msg.member.displayName + ".")
     } else {
       msg.channel.send("This is not an ticket channel!")
     }
@@ -51,6 +72,23 @@ client.on('message', (msg) => {
     msg.channel.send(tosay)
   } else if (msg.content.startsWith("?help")) { 
     msg.channel.send(global.help("ZontServer", client))
+  }else if (msg.content.startsWith("?announce")) {
+    var tosay = msg.content.slice(10, msg.content.length);
+    msg.delete();
+    var ch = msg.channels.find(ch => ch.name === "announcements");
+    if (!ch) {
+      msg.guild.createChannel("announcements", { type: "text", topic: "News Updates!", nsfw: false });
+      msg.guild.owner.send('I have automatically created a text channel named "Announcements". Announcements will be sent there.');
+      var ch = msg.channels.find(ch => ch.name === "announcements");
+    };
+    if (!checkPerm(msg.member, "MANAGE_CHANNELS", msg.channel)) return;
+    var embed = new RichEmbed;
+    embed.setTitle('Announcement');
+    embed.setAuthor(msg.member.displayName, msg.author.avatarURL);
+    embed.setDescription(tosay);
+    embed.setFooter(process.env.FOOTER);
+    embed.setColor(0x000000);
+    ch.send(embed);
   }
 });
 
