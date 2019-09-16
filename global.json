@@ -1,4 +1,5 @@
 {
   "changelog": "Moderation Command Update /n/ SQL Support /n/ Framework Updates",
-  "maintence": true
+  "disable": true,
+  "disablemsg": "TEST MODE ACTIVE | This is likely due to potential security exploits. The bot will not function whilst this mode is active."
 }

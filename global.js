@@ -5,16 +5,20 @@ const cmdlist = require('./commands.json');
 exports.ready = function(b, c) {
   if (!b || !c) return false;
   const d = require(`./${b}.json`);
-  var s = d.status;
-  var m = d.mode;
-  var g = d.game;
-  c.user.setPresence({ game: { name: g, type: s }, status: m });
-  if (c.guilds.array().length < 1) {
-    console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with no servers.`);
+  if (!gl.disable) {
+    var s = d.status;
+    var m = d.mode;
+    var g = d.game;
+    c.user.setPresence({ game: { name: g, type: s }, status: m });
+    if (c.guilds.array().length < 1) {
+      console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with no servers.`);
+    } else {
+      console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} the first one being ${c.guilds.first().name}`);
+    };
+    return true;
   } else {
-    console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} the first one being ${c.guilds.first().name}`);
-  };
-  return true;
+    c.user.setPresence({ game: { name: gl.disablemsg, type: "PLAYING" }, status: "DnD" })
+  }
 };
 
 exports.error = function() {
