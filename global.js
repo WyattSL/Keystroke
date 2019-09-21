@@ -13,8 +13,10 @@ exports.ready = function(b, c) {
     c.user.setStatus(m);
     if (c.guilds.array().length < 1) {
       console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with no servers.`);
-    } else {
+    } else if (c.guilds.array().length == 1) {
       console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} server named ${c.guilds.first().name}.`);
+    } else {
+      console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} servers: ${c.guilds.array()}`);
     };
     return true;
   } else {
