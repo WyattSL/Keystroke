@@ -14,7 +14,7 @@ exports.ready = function(b, c) {
     if (c.guilds.array().length < 1) {
       console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with no servers.`);
     } else {
-      console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} the first one being ${c.guilds.first().name}`);
+      console.log(`Keystroke Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} server named ${c.guilds.array().first()}`);
     };
     return true;
   } else {
