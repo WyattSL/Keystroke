@@ -2,7 +2,7 @@
 const { Client, RichEmbed } = new RichEmbed;
 const SQL = require('./mysql.js');
 const perms = require('./perms.js');
-
+const global = require('./global.js');
 
 exports.run = function(n, c, msg) {
   if (!perms.checkPerm(msg.member, "MANAGE_MESSAGES", msg.channel)) return;

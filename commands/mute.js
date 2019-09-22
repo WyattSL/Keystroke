@@ -2,7 +2,7 @@
 const { Client, RichEmbed } = new RichEmbed;
 const SQL = require('./mysql.js');
 const perms = require('./perms.js');
-
+const global = require('./global.js');
 
 exports.run = function(n, c, msg) {
   var con = require('./config/' + n + '.json');

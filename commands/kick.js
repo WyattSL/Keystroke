@@ -2,7 +2,7 @@
 const { Client, RichEmbed } = new RichEmbed;
 const sql = require('./mysql.js');
 const perms = require('./perms.js');
-
+const global = require('./global.js');
 
 exports.run = function(n, c, m) {
   if (!perms.checkPerm(m.member, "KICK_MEMBERS", m.channel)) return;
