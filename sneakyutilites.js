@@ -79,7 +79,7 @@ client.on('message', (msg) => {
     msg.delete();
     msg.channel.send(tosay)
   } else if (msg.content.startsWith("?help")) { 
-    msg.channel.send(global.help("name", client))
+    msg.channel.send(global.help(name, client))
   }else if (msg.content.startsWith("?announce")) {
     var tosay = msg.content.slice(10, msg.content.length);
     msg.delete();
