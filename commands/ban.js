@@ -17,13 +17,13 @@ exports.run = function(n, c, m) {
   embed.setAuthor(m.member.displayName, m.author.avatarURL);
   embed.setDescription('Banning ' + tu);
   if (!tu) {
-    embed.setDescription(`Please mention an user, or type their nickname/displayname`)
+    embed.setDescription(`Please mention an user, or type their nickname/displayname`);
   } else if (tu.length > 1) {
-    embed.setDescription(`It appears`)
+    embed.setDescription(`I found multiple people under that name. Please be more specfic, or mention the user.`);
   }
   embed.setFooter(process.env.FOOTER);
   embed.setColor(0xFF0000);
   m.channel.send(embed);
-  tu.ban();
+  if (tu && tu.length === 1) tu.ban();
   return true;
 };
