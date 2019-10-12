@@ -1,6 +1,6 @@
 const { Client, RichEmbed } = require('discord.js');
 const sql = require('./mysql.js');
-const pl = require('./pl.json');
+//const pl = require('./permissions.json');
 
 exports.noPerm = function(ch) {
   var e = new RichEmbed()

@@ -4,7 +4,7 @@ const cmdlist = require('./commands.json');
 
 exports.ready = function(b, c) {
   if (!b || !c) return false;
-  const d = require(`./${b}.json`);
+  const d = require(`./bots/${b}`);
   if (!gl.disable) {
     var s = d.status;
     var m = d.mode;
