@@ -28,12 +28,7 @@ function createBot(id) {
   });
   client.on('message', (msg) => {
     if (msg.author.bot) return;
-    var e;
-    for (e=0;e<bu.length;e++) {
-      if (bu[1] === msg.author.id) {
-        msg.channel.send('You have been restricted from performing commands.');
-      };
-    };
+    if (!msg.content.startsWith(bj.prefix)) return;
   });
 };
 
