@@ -9,6 +9,7 @@ const global = require('./global.js');
 const mysql = require('./mysql.js');
 const perms = require('./perms.js');
 const fs = require('fs');
+const bu = require('./blockedusers.json')
 
 // configuraation
 var bot_dir = "./bots/";
@@ -25,7 +26,15 @@ function createBot(id) {
   client.on('ready', () => {
     global.ready(id, client);
   });
-  
+  client.on('message', (msg) => {
+    if (msg.author.bot) return;
+    var e;
+    for (e=0;e<bu.length;e++) {
+      if (bu[1] === msg.author.id) {
+        msg.channel.send('You have been restricted from performing commands.');
+      };
+    };
+  });
 };
 
 fs.readdir(bot_dir, function(err, files) {
