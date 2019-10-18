@@ -32,6 +32,7 @@ function createBot(id) {
     console.log(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`)
     var cmd = require(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`);
     if (!cmd) { return } else {
+      if (!bj.commands[cmd]) return;
       cmd.run(bj, client, msg);
     }
   });
