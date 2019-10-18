@@ -1,11 +1,12 @@
 //basic api functions
 const { Client, RichEmbed } = require('discord.js');
-const SQL = require('./mysql.js');
-const perms = require('./perms.js');
-const global = require('./global.js');
+const SQL = require('../mysql.js');
+const perms = require('../perms.js');
+const global = require('../global.js');
+
 
 exports.run = function(n, c, msg) {
-  if (!perms.checkPerm(msg.member, "MANAGE_MESSAGES", msg.channel)) return;
+  if (!perms.checkPerm("MANAGE_MESSAGES", msg.member, msg.channel)) return;
   var announcement = msg.content.slice(10, msg.content.length);
   var e = new RichEmbed()
   .setTitle(`Announcement`)

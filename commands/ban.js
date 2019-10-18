@@ -5,12 +5,12 @@ const perms = require('../perms.js');
 const global = require('../global.js');
 
 exports.run = function(n, c, m) {
-  if (!perms.checkPerm(m.member, "BAN_MEMBERS", m.channel)) return;
+  if (!perms.checkPerm("BAN_MEMBERS", m.member, m.channel)) return;
   var tu = m.mentions.members.first();
   if (!tu) {
     var tm = m.content.slice(5, m.content.length);
-    tu = m.guild.members.find(me => me.displayName === tm).array();
-    if (!tu) tu = m.guild.users.find(me => me.username === tm).array();
+    tu = m.guild.members.find(me => me.displayName === tm)
+    if (tu) tu = m.guild.users.find(me => me.username === tm).first();
   }
   var embed = new RichEmbed;
   embed.setTitle('Punishment');

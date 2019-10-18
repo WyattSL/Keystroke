@@ -1,11 +1,12 @@
 //basic api functions
 const { Client, RichEmbed } = require('discord.js');
-const sql = require('./mysql.js');
-const perms = require('./perms.js');
-const global = require('./global.js');
+const SQL = require('../mysql.js');
+const perms = require('../perms.js');
+const global = require('../global.js');
+
 
 exports.run = function(n, c, m) {
-  if (!perms.checkPerm(m.member, "KICK_MEMBERS", m.channel)) return;
+  if (!perms.checkPerm("KICK_MEMBERS", m.member, m.channel)) return;
   var tu = m.mentions.members.first();
   if (!tu) {
     var tm = m.content.slice(5, m.content.length);
