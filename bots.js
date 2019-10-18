@@ -29,6 +29,10 @@ function createBot(id) {
   client.on('message', (msg) => {
     if (msg.author.bot) return;
     if (!msg.content.startsWith(bj.prefix)) return;
+    var cmd = require(`./commands/${msg.content.split(' ')[0].split(bj)[1]}.js`);
+    if (!cmd) { return } else {
+      cmd.run(bj, client, msg);
+    }
   });
 };
 
