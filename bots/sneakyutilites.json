@@ -4,6 +4,8 @@
   "mode": "ONLINE",
   "status": "PLAYING",
   "game": "With Sneakyzakki",
+  "scid": "",
+  "scto": "",
   "commands": [
     "say",
     "ban",
