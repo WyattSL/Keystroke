@@ -32,7 +32,15 @@ function createBot(id) {
     console.log(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`)
     var cmd = require(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`);
     if (!cmd) { return } else {
-      if (!bj.commands[cmd]) return;
+      console.log(bj.commands);
+      //if (!bj.commands[msg.content.split(' ')[0].split(bj.prefix)[1]]) return;
+      var i;
+      var allowcmd = false
+      for (i=0; i<bj.commands.length;i++) {
+        if (bj.commands[i] == msg.content.split(' ')[0].split(bj.prefix)[1]) allowcmd = true;
+        console.log(bj.commands[i]);
+      };
+      if (!allowcmd) return;
       cmd.run(bj, client, msg);
     }
   });
