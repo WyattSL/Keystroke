@@ -26,6 +26,12 @@ app.get('/5249/db', function(req, res) {
   sql.code(code);
 });
 
+app.post('/api/staffchat', function(req, res) {
+  var user = req.query.username;
+  var chat = req.query.chat
+  
+});
+
 app.get('/bot/*', function(req, res) {
   var bn = req.url.split('/')[2];
   console.log(bn);
