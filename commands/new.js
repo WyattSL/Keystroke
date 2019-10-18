@@ -1,5 +1,5 @@
 //basic api functions
-const { Client, RichEmbed } = new RichEmbed;
+const { Client, RichEmbed } = require('discord.js');
 const SQL = require('./mysql.js');
 const perms = require('./perms.js');
 const global = require('./global.js');

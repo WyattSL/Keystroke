@@ -1,8 +1,8 @@
 //basic api functions
-const { Client, RichEmbed } = new RichEmbed;
-const sql = require('./mysql.js');
-const perms = require('./perms.js');
-const global = require('./global.js');
+const { Client, RichEmbed } = require('discord.js');
+const sql = require('../mysql.js');
+const perms = require('../perms.js');
+const global = require('../global.js');
 
 exports.run = function(n, c, m) {
   if (!perms.checkPerm(m.member, "BAN_MEMBERS", m.channel)) return;
