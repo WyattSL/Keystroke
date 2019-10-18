@@ -19,7 +19,16 @@ exports.run = function(n, c, msg) {
       msg.guild.owner.send('I have automatically created a category channel named "Tickets". This channel is where all tickets will be stored.');
       var tc = msg.guild.channels.find(ch => ch.name === "tickets" && ch.type === "category");
     }
-    msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", topic: msg.author.username, nsfw: false});
+    msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", parent: tc, topic: msg.author.username, nsfw: false});
     msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
+    tc.replacePermissionOverwrites({
+      overwrites: [
+        {
+         id: msg.author.id,
+         denied: ['VIEW_CHANNEL', 'SEND_MESSAGES'],
+        },
+      ],
+      reason: 'Needed to change permissions'
+    });
   return true;
 };
