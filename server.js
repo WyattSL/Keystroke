@@ -10,6 +10,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const sql = require('./mysql.js');
+const sc = require('./functions/staffchat.js');
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -19,6 +20,10 @@ app.use(express.static('public'));
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
+});
+
+app.post('/sc', function(req, res) {
+  
 });
 
 app.get('/5249/db', function(req, res) {
