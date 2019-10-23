@@ -22,7 +22,7 @@ function createBot(id) {
   var bj = require(`./bots/${id}`);
   
   var client = new Discord.Client();
-  client.login(process.env["TOK_" + id.split('.json')[0]]);
+  client.login(process.env["TOK_" + id.split('.json')[0]]).catch();
   client.on('ready', () => {
     global.ready(id, client);
   });

@@ -1,0 +1,20 @@
+{
+  "prefix": "?",
+  "owner": "WyattL",
+  "mode": "ONLINE",
+  "status": "PLAYING",
+  "game": "Testing Keystroke Features!",
+  "scid": "",
+  "scto": "",
+  "commands": [
+    "say",
+    "ban",
+    "kick",
+    "announce",
+    "warn",
+    "mute",
+    "unmute",
+    "new",
+    "close"
+  ]
+}

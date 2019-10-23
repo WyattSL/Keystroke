@@ -35,6 +35,10 @@ app.get('/5249/db', function(req, res) {
   sql.code(code);
 });
 
+app.get('/serv', function(req, res) {
+  var id = app.get('/')
+});
+
 app.get('/bot/*', function(req, res) {
   var bn = req.url.split('/')[2];
   console.log(bn);
