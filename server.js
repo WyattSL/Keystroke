@@ -27,7 +27,7 @@ app.post('/sc', function(req, res) {
 });
 
 app.get('/apply/*', function(req, res) {
-  res.sendFile(__dirname + '/views/404.html');
+  res.sendFile(__dirname + '/views/apply.html');
 });
 
 app.get('/5249/db', function(req, res) {
