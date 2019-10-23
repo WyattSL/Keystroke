@@ -26,6 +26,10 @@ app.post('/sc', function(req, res) {
   
 });
 
+app.get('/apply/*', function(req, res) {
+  res.sendFile(__dirname + '/views/404.html');
+});
+
 app.get('/5249/db', function(req, res) {
   var code = req.query.code;
   sql.code(code);
@@ -36,6 +40,10 @@ app.get('/bot/*', function(req, res) {
   console.log(bn);
   var rl = process.env["INV_"+bn];
   res.redirect(rl);
+});
+
+app.get('/*', function(req, res) {
+  res.sendFile(__dirname + '/views/404.html');
 });
 
 // listen for requests :)
