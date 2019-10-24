@@ -31,7 +31,7 @@ exports.error = function() {
 }
 
 exports.help = function(b, c) {
-  const d = require(`./${b}.json`);
+  const d = require(`./bots/${b}.json`);
   if (!b) return false;
   var uptime = c.uptime;
   var mins = uptime/60000;

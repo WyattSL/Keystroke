@@ -41,7 +41,7 @@ function createBot(id) {
         console.log(bj.commands[i]);
       };
       if (!allowcmd) return;
-      cmd.run(bj, client, msg);
+      cmd.run(id.split('.json')[0], client, msg);
     }
   });
 };
