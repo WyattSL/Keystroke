@@ -4,6 +4,7 @@
   "status": "PLAYING",
   "game": "With DarkFireMage",
   "commands": [
+    "help",
     "say",
     "ban",
     "warn",

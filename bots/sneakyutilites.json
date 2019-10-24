@@ -7,6 +7,7 @@
   "scid": "",
   "scto": "",
   "commands": [
+    "help",
     "say",
     "ban",
     "kick",

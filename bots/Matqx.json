@@ -4,6 +4,7 @@
   "status": "PLAYING",
   "game": "With Matqx",
   "commands": [
+    "help",
     "mute",
     "unmute",
     "ban",

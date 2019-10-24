@@ -4,6 +4,7 @@
   "status": "PLAYING",
   "game": "With Zontafer4321",
   "commands": [
+    "help",
     "report",
     "new",
     "close",
