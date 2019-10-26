@@ -8,6 +8,9 @@ const global = require('../global.js');
 exports.run = function(n, c, msg) {
    if (!perms.checkPerm("MUTE_MEMBERS", msg.member, msg.channel)) return;
     var tu = msg.mentions.members.first();
+    if (!tu) {
+      msg.channel.send(':x: Please specify an user.');
+    }
     var ti = tu.id;
     var ii = msg.author.id;
     var tr = msg.guild.roles.find(r => r.name === "Muted");
