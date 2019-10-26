@@ -29,16 +29,13 @@ function createBot(id) {
   client.on('message', (msg) => {
     if (msg.author.bot) return;
     if (!msg.content.startsWith(bj.prefix)) return;
-    console.log(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`)
     var cmd = require(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`);
     if (!cmd) { return } else {
-      console.log(bj.commands);
       //if (!bj.commands[msg.content.split(' ')[0].split(bj.prefix)[1]]) return;
       var i;
       var allowcmd = false
       for (i=0; i<bj.commands.length;i++) {
         if (bj.commands[i] == msg.content.split(' ')[0].split(bj.prefix)[1]) allowcmd = true;
-        console.log(bj.commands[i]);
       };
       if (!allowcmd) return;
       cmd.run(id.split('.json')[0], client, msg);

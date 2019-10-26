@@ -1,0 +1,20 @@
+{
+  "prefix": "$",
+  "owner": "Keenu",
+  "mode": "ONLINE",
+  "status": "PLAYING",
+  "game": "With Keenu!",
+  "scid": "",
+  "scto": "",
+  "commands": [
+    "help",
+    "ban",
+    "kick",
+    "announce",
+    "warn",
+    "mute",
+    "unmute",
+    "new",
+    "close"
+  ]
+}

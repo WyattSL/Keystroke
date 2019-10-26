@@ -22,7 +22,7 @@ exports.run = function(n, c, msg) {
     msg.guild.createChannel("ticket-" + msg.author.username, { type: "text", parent: tc, topic: msg.author.username, nsfw: false, permissionOverwrites: [{
     id: msg.author.id,
     allow: ['SEND_MESSAGES', 'VIEW_CHANNEL']
-  }]
+  }]);
   msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
   return true;
 };
