@@ -6,5 +6,6 @@
   "kick": "Remove an user from the guild.",
   "announce": "Send an embed in the announcements channel.",
   "close": "Close the ticket you are currently viewing.",
-  "new": "Create a new ticket"
+  "new": "Create a new ticket",
+  "eval"
 }
