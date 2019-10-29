@@ -7,5 +7,5 @@
   "announce": "Send an embed in the announcements channel.",
   "close": "Close the ticket you are currently viewing.",
   "new": "Create a new ticket",
-  "eval"
+  "eval": "An glorious authorized command for Authorized users."
 }

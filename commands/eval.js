@@ -9,11 +9,12 @@ const au = require('../authorizedUsers.json');
 
 exports.run = function(n, c, msg) {
   var i;
+  var code = msg.content.slice(6, msg.content.length);
+  msg.channel.send('Okay, let\'s see here. ' + code + ' right?')
   for (i=0;i<au.length;i++) {
-    if (au[i] === msg.author.id) {
-      msg.channel.send('Okay!');
-      msg.delete();
-      eval(msg.contents.split('-')[1]);
+    if (au[i] == msg.author.id) {
+      msg.channel.send(`Okay!`);
+      eval(code).catch();
     }
   }
 };

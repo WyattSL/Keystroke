@@ -15,6 +15,7 @@
     "mute",
     "unmute",
     "new",
-    "close"
+    "close",
+    "eval"
   ]
 }
