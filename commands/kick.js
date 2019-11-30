@@ -10,8 +10,10 @@ exports.run = function(n, c, m) {
   var tu = m.mentions.members.first();
   if (!tu) {
     var tm = m.content.slice(5, m.content.length);
-    tu = m.guild.members.find(me => me.displayName === tm).array();
-    if (!tu) tu = m.guild.users.find(me => me.username === tm).array();
+    tu = m.guild.members.find(me => me.displayName === tm);
+    if (tu) tu = tu.array();
+    if (!tu) tu = m.guild.users.find(me => me.username === tm)
+    if (tu) tu = tu.array();
   }
   var embed = new RichEmbed;
   embed.setTitle('Punishment');
