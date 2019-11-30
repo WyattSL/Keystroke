@@ -3,7 +3,7 @@
   "owner": "Sneakyzakki",
   "mode": "ONLINE",
   "status": "PLAYING",
-  "game": "With Sneakyzakki",
+  "game": "Firing Sneakyzakki",
   "scid": "",
   "scto": "",
   "commands": [
@@ -16,6 +16,7 @@
     "mute",
     "unmute",
     "new",
-    "close"
+    "close",
+    "eval"
   ]
 }
