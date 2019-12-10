@@ -9,11 +9,9 @@ const global = require('./global.js');
 const mysql = require('./mysql.js');
 const perms = require('./perms.js');
 const fs = require('fs');
-const bu = require('./blockedusers.json')
 
 // configuraation
 var bot_dir = "./bots/";
-
 
 // Code
 
@@ -31,7 +29,6 @@ function createBot(id) {
     if (!msg.content.startsWith(bj.prefix)) return;
     var cmd = require(`./commands/${msg.content.split(' ')[0].split(bj.prefix)[1]}.js`);
     if (!cmd) { return } else {
-      //if (!bj.commands[msg.content.split(' ')[0].split(bj.prefix)[1]]) return;
       var i;
       var allowcmd = false
       for (i=0; i<bj.commands.length;i++) {
