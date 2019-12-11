@@ -18,8 +18,7 @@
   ],
   "license": "MIT",
   "main": "server.js",
-  "name": "Keystroke",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "name": "hello-sqlite",
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-sqlite"
   },
