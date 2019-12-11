@@ -6,6 +6,7 @@
   "game": "Testing Keystroke Features!",
   "scid": "",
   "scto": "",
+  "special":  true,
   "commands": [
     "help",
     "ban",

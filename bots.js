@@ -34,7 +34,7 @@ function createBot(id) {
       for (i=0; i<bj.commands.length;i++) {
         if (bj.commands[i] == msg.content.split(' ')[0].split(bj.prefix)[1]) allowcmd = true;
       };
-      if (!allowcmd) return;
+      if (!allowcmd || bj.special) return;
       cmd.run(id.split('.json')[0], client, msg);
     }
   });
