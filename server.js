@@ -6,6 +6,7 @@ require('./bots.js');
 // init project
 var express = require('express');
 var bodyParser = require('body-parser');
+const request = require('request');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,6 +45,19 @@ app.get('/bot/*', function(req, res) {
   console.log(bn);
   var rl = process.env["INV_"+bn];
   res.redirect(rl);
+});
+
+app.post(`/importRepo`, function (req, res) {
+    var auth = '1d0e74a5-d13a-4018-9d3e-92de67016f8e';
+    var url = `https://api.glitch.com/project/githubImport?projectId=b2d913ef-8ce5-41e3-ae1b-2ffafefa0d41&repo=GameFreako%2FKeystroke`;
+    var options = {
+        url: url,
+        headers: {
+            'Authorization': auth
+        }
+    };
+    request.post(options);
+    res.end('OK');
 });
 
 app.get('/*', function(req, res) {
