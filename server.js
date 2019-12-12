@@ -49,7 +49,7 @@ app.get('/bot/*', function(req, res) {
 
 app.post(`/importRepo`, function (req, res) {
     var auth = process.env.GlitchAuth;
-    var url = `https://api.glitch.com/project/githubImport?projectId=b2d913ef-8ce5-41e3-ae1b-2ffafefa0d41&repo=GameFreako%2FKeystroke:Keystroke`;
+    var url = `https://api.glitch.com/project/githubImport?projectId=b2d913ef-8ce5-41e3-ae1b-2ffafefa0d41&repo=GameFreako%2FKeystroke&path=Keystroke`;
     var options = {
         url: url,
         headers: {
