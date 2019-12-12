@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bots",
     "\\commands"
   ],
-  "SelectedNode": "\\commands\\purge.js",
+  "SelectedNode": "\\bots.js",
   "PreviewInSolutionExplorer": false
 }

@@ -35,16 +35,30 @@ exports.help = function(b, c) {
   if (!b) return false;
   var uptime = c.uptime;
   var e = new RichEmbed().setColor(0x000000)
-  .setFooter(`Job Request by ${d.owner}`)
-  .setTitle('Help')
-  .setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${uptime} | For assistance please contact WyattL#3477`);
-  e.addField(`Keystroke`, `This bot was made by WyattL | To request an bot, goto https://keystroke.glitch.me/`, true);
-  e.addField(`Changelog`, `${gl.changelog}`, true)
-  var commands = d.commands;
-  var i;
-  for (i=0;i<commands.length;i++) {
-    var cmd = commands[i];
-    e.addField(`${cmd}`,  `${cmdlist[cmd]}`, false);
-  };
+  e.setFooter(`Job Request by ${d.owner}`);
+  e.setTitle('Help')
+    e.setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${uptime} | For assistance please contact WyattL#3477`);
+    if (!b.special) {
+        var commands = d.commands;
+        var i;
+        for (i = 0; i < commands.length; i++) {
+            var cmd = commands[i];
+            e.addField(`${cmd}`, `${cmdlist[cmd]}`, false);
+        };
+
+    } else {
+        var cmd_dir = `./commands/`;
+        fs.readdir(cmd_dir, function (err, files) {
+            if (err) throw err;
+            if (!files) {
+                console.error('Invalid cmd directory. No files contained within directory.')
+            } else {
+                var i;
+                for (i = 0; i < files.length; i++) {
+                    e.addField(`${files[i].split('.')[0]}`, `${cmdlist[i]}`, false);
+                };
+            };
+        });
+    }
   return e;
 }
