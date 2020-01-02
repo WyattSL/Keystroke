@@ -1,0 +1,26 @@
+{
+  "id": "Birb",
+	"prefix": "b!",
+	"owner": "Phoenix Wright#5076",
+	"mode": "ONLINE",
+	"status": "PLAYING",
+	"game": "Dynasty",
+	"scid": "",
+	"scto": "",
+  "mhid": null,
+  "joinchannel": null,
+  "leavechannel": null,
+	"commands": [
+		"help",
+		"ban",
+		"kick",
+		"mute",
+		"say",
+		"announce",
+		"warn",
+		"unmute",
+		"new",
+		"close",
+		"eval"
+	]
+}

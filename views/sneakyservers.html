@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Sneaky Servers </title>
+    </head>
+    <body>
+        <header id="header">
+            <img id="header_logo" img="https://cdn.discordapp.com/emojis/626752303906422794.png?v=1" alt="Logo"/>
+            <h1 id="header_title"> Sneaky Servers </h1>
+            <button id="header_home"> Home </button>
+            <button id="header_discord"> Discord </button>
+            <button id="header_apply"> Apply </button>
+            <button id="header_login"> Login </button>
+        </header>
+        <div class="tab" id="tab_home">
+            <h2 id="home_heading"> Welcome to <b>Sneaky Servers</b>! </h2>
+            <h6><i>Home of the great <b>Sneakyzakki</b></i></h6>
+            <table id="home_staff">
+                <tr>
+                    <th> Name </th>
+                    <th> Role </th>
+                    <th> Joined </th>
+                </tr>
+            </table>
+        </div>
+        <div class="tab" id="tab_discord">
+            <button id="discord_join"> Join our Discord </button>
+            <h6><i>Come join us in our wonderful sneaky wonderland.</i></h6>
+            <iframe src="https://discordapp.com/widget?id=560862539706138636&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <div class="tab" id="tab_apply">
+            <div id="apply_before">
+                <form id="apply_form">
+                    <p>Username</p><br /><input type="text" id="apply_username" placeholder="IGN"/><br />
+                    <p>Discord</p><br /><input type="text" id="apply_discord" placeholder="Name#0001" /><br />
+                    <p>Playtime</p><br /><input type="number" id="apply_playtime" readonly /><p> Hours</p><br />
+                    <p>Role</p><br /><datalist>
+                        <option value="Member">Member</option>
+                        <option value="Builder">Builder</option>
+                        <option value="Moderator">Moderator</option>
+                        <option value="Administrator">Administrator</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Owner">Owner</option>
+                    </datalist>
+                    <p>Why should we accept you?</p><textarea>
+                     
+                    </textarea>
+                </form>
+            </div>
+            <div id="apply_after">
+                </h3>Success!</h3>
+                <p>Your application has been submitted. We will review your request shortly.</p>
+            </div>
+        </div>
+    </body>
+</html>

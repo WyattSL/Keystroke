@@ -1,11 +1,12 @@
 {
-  "prefix": "?",
-  "owner": "Sneakyzakki",
+  "prefix": "$",
+  "owner": "skVixio",
   "mode": "ONLINE",
   "status": "WATCHING",
-  "game": "Stupidity unfold.",
+  "game": "People draw on Art Hub!",
   "scid": "",
   "scto": "",
+  "filter": false,
   "commands": [
     "help",
     "ban",
@@ -17,7 +18,6 @@
     "unmute",
     "new",
     "close",
-    "eval",
-    "detonate"
+    "eval"
   ]
 }

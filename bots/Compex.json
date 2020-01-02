@@ -1,0 +1,22 @@
+{
+	"prefix": "-",
+	"owner": "lRewindl",
+	"mode": "ONLINE",
+	"status": "WATCHING",
+	"game": "Minecraft",
+	"scid": "",
+	"scto": "",
+	"commands": [
+		"help",
+		"ban",
+		"kick",
+		"mute",
+		"say",
+		"announce",
+		"warn",
+		"unmute",
+		"new",
+		"close",
+		"eval"
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "Ghostified",
+	"prefix": "!",
+	"owner": "SkriptDev#7140",
+	"mode": "ONLINE",
+	"status": "WATCHING",
+	"game": "Ghostified.minehut.gg",
+	"scid": "",
+	"scto": "",
+  "mhid": "5e0676ff7bd63c01804666ea",
+  "joinchannel": 660521611442651149,
+  "leavechannel": 660930933217558528,
+	"commands": [
+		"help",
+		"ban",
+		"kick",
+		"mute",
+		"say",
+		"announce",
+		"warn",
+		"unmute",
+		"new",
+		"close",
+		"eval"
+	]
+}

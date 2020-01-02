@@ -1,9 +1,7 @@
+// start bots
 require('./bots.js');
 
-// server.js
-// where your node app starts
-
-// init project
+// peoj start
 var express = require('express');
 var bodyParser = require('body-parser');
 const request = require('request');
@@ -13,38 +11,43 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const sql = require('./mysql.js');
 const sc = require('./functions/staffchat.js');
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/views/index.html');
 });
 
-app.post('/sc', function(req, res) {
-  
+app.post('/sc', function (req, res) {
+
 });
 
-app.get('/apply/*', function(req, res) {
-  res.sendFile(__dirname + '/views/apply.html');
+app.get('/web/*', function (req, res) {
+    var site = req.url.split('/')[2];
+    if (!site) {
+        res.sendFile('../views/404.html');
+    } else {
+        res.sendFile(`../views/${site}.html`);
+    }
 });
 
-app.get('/5249/db', function(req, res) {
-  var code = req.query.code;
-  sql.code(code);
+app.get('/apply/*', function (req, res) {
+    res.sendFile('../views/apply.html');
 });
 
-app.get('/serv', function(req, res) {
-  var id = app.get('/')
+app.get('/5249/db', function (req, res) {
+    var code = req.query.code;
+    sql.code(code);
 });
 
-app.get('/bot/*', function(req, res) {
-  var bn = req.url.split('/')[2];
-  console.log(bn);
-  var rl = process.env["INV_"+bn];
-  res.redirect(rl);
+app.get('/serv', function (req, res) {
+    var id = app.get('/')
+});
+
+app.get('/bot/*', function (req, res) {
+    var bn = req.url.split('/')[2];
+    console.log(bn);
+    var rl = process.env["INV_" + bn];
+    res.redirect(rl);
 });
 
 app.post(`/importRepo`, function (req, res) {
@@ -56,20 +59,20 @@ app.post(`/importRepo`, function (req, res) {
             'Authorization': auth
         }
     };
-    request.post(options, function(err, resp, body) {
-      if (err) throw err;
-      if (resp.statusCode !== 200) {
-        console.warn(body);
-      };
-      res.sendStatus(resp.statusCode);
+    request.post(options, function (err, resp, body) {
+        if (err) throw err;
+        if (resp.statusCode !== 200) {
+            console.warn(body);
+        };
+        res.sendStatus(resp.statusCode);
     });
 });
 
-app.get('/*', function(req, res) {
-  res.sendFile(__dirname + '/views/404.html');
+app.get('/*', function (req, res) {
+    res.sendFile('../views/404.html');
 });
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
+var listener = app.listen(process.env.PORT, function () {
+    console.log('Your app is listening on port ' + listener.address().port);
 });

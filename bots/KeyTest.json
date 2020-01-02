@@ -1,12 +1,14 @@
 {
+  "id": "KeyTest",
   "prefix": "-",
-  "owner": "WyattL",
+  "owner": "WyattL#3477",
   "mode": "ONLINE",
   "status": "PLAYING",
   "game": "Testing Keystroke Features!",
   "scid": "",
   "scto": "",
   "special":  true,
+  "mhid": "test",
   "commands": [
     "help",
     "ban",

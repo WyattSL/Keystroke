@@ -1,0 +1,24 @@
+{
+  "id": "minepeak",
+	"prefix": "<MENTION>",
+	"owner": "emilindaniel27#0027",
+	"mode": "ONLINE",
+	"status": "WATCHING",
+	"game": "Every one of you.",
+	"scid": "",
+	"scto": "",
+  "mhid": "",
+  "joinchannel": null,
+  "leavechannel": null,
+	"commands": [
+		"help",
+		"ban",
+		"kick",
+		"mute",
+		"say",
+		"warn",
+		"unmute",
+		"new",
+		"close"
+	]
+}

@@ -7,7 +7,18 @@
     "express": "^4.17.1",
     "sqlite3": "^4.1.1",
     "requ": "^1.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "got": "^10.2.0",
+    "minehut-api": "^1.0.2",
+    "eslint": "^6.7.2",
+    "sodium": "^3.0.2",
+    "uws": "^99.0.0",
+    "bufferutil": "^4.0.1",
+    "erlpack": "^0.1.3",
+    "node-opus": "^0.3.2",
+    "libsodium-wrappers": "^0.7.5",
+    "body-parser": "^1.19.0",
+    "request-promise-native": "^1.0.8"
   },
   "description": "A simple Node app with SQLite as a database management system, instantly up and running.",
   "engines": {
