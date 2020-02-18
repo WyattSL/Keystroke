@@ -1,0 +1,24 @@
+{
+    "id": "puremines",
+    "prefix": "p/",
+    "owner": "-FitztianPlayz#4545",
+    "mode": "online",
+    "status": "Playing",
+    "game": "on PureMines.minehut.gg",
+    "commands": [
+      "new",
+      "close",
+      "warn",
+      "warnings",
+      "help",
+      "purge",
+      "kick",
+      "ban",
+      "mute",
+      "unmute",
+      "say",
+      "fire",
+      "announce",
+      "report"
+    ]
+  }

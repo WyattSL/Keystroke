@@ -26,3 +26,6 @@ exports.run = function(n, c, msg) {
   msg.author.send("Your ticket has been created. You can view it in the TICKETS category.");
   return true;
 };
+
+exports.description = "Create a new ticket."
+exports.usage = "new"

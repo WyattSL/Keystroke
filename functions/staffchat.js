@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const Discord = require('discord.js');
 
+exports.run = function(client, config) {
+  // empty function, needed to silence error message
+}
 
 exports.chat = function(user, msg, id) {
   var bf = require(`./bots/${id}.json`);

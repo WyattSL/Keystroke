@@ -1,0 +1,23 @@
+{
+    "id": "cyberkraft",
+    "prefix": "&",
+    "owner": "Conutik_MC#5696",
+    "mode": "online",
+    "status": "Playing",
+    "game": "CyberKraft.minehut.gg",
+    "filter": "true",
+    "commands": [
+      "help",
+      "mute",
+      "eval",
+      "warn",
+      "warnings",
+      "ban",
+      "kick",
+      "unmute",
+      "purge",
+      "new",
+      "close",
+      "report"
+    ]
+  }

@@ -17,3 +17,9 @@ exports.run = function(n, c, msg) {
   msg.channel.send(e);
   return true;
 };
+
+exports.description = "Send a announcement in the current channel."
+exports.usage = "announce This is important!"
+exports.permission = "MANAGE_MESSAGES"
+exports.meonly = false;
+exports.hide = false;

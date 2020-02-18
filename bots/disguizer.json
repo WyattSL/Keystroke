@@ -1,0 +1,24 @@
+{
+    "id": "disguizer",
+    "prefix": "~",
+    "owner": "Miggy#1909",
+    "mode": "online",
+    "status": "Listening",
+    "game": "to You",
+    "commands": [
+      "new",
+      "close",
+      "warn",
+      "warnings",
+      "help",
+      "purge",
+      "kick",
+      "ban",
+      "mute",
+      "unmute",
+      "say",
+      "fire",
+      "announce",
+      "report"
+    ]
+  }

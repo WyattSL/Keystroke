@@ -1,0 +1,20 @@
+{
+    "id": "qmsbot",
+    "prefix": "q-",
+    "owner": "Quuart_Pickle#6122",
+    "mode": "online",
+    "status": "Watching",
+    "game": "Your soul",
+    "scid": "",
+    "scto": "",
+    "commands": [
+        "help",
+        "ban",
+        "kick",
+        "warn",
+        "purge",
+        "warnlist",
+        "mute",
+        "unmute"
+    ]
+  }

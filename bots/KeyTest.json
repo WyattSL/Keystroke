@@ -1,23 +1,14 @@
 {
   "id": "KeyTest",
-  "prefix": "-",
+  "prefix": "&",
   "owner": "WyattL#3477",
-  "mode": "ONLINE",
-  "status": "PLAYING",
-  "game": "Testing Keystroke Features!",
+  "mode": "online",
+  "status": "playing",
+  "game": "Testing a web panel again",
   "scid": "",
   "scto": "",
-  "special":  true,
-  "mhid": "test",
-  "commands": [
-    "help",
-    "ban",
-    "kick",
-    "announce",
-    "warn",
-    "mute",
-    "unmute",
-    "new",
-    "close"
-  ]
+  "firerole": "",
+  "staffrole": "*",
+  "special": true,
+  "commands": []
 }

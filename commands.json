@@ -7,5 +7,8 @@
   "announce": "Send an embed in the announcements channel.",
   "close": "Close the ticket you are currently viewing.",
   "new": "Create a new ticket",
-  "eval": "An glorious authorized command for Authorized users."
+  "eval": "An glorious authorized command for Authorized users.",
+  "help": "View a list of commands.",
+  "purge": "Bulk remove messages.",
+  "warnings": "View a list of warnings on the server."
 }

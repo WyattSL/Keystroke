@@ -27,3 +27,9 @@ exports.run = function(n, c, m) {
   if (tu && tu.length === 1) tu.ban();
   return true;
 };
+
+exports.description = "Banish a player from the guild."
+exports.usage = "ban @OWNER stupidity"
+exports.permission = "BAN_MEMBERS"
+exports.hide = false;
+exports.meonly = false;

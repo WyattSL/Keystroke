@@ -9,18 +9,17 @@ const au = require('../authorizedUsers.json');
 
 exports.run = function(n, c, msg) {
   var i;
-  var code = msg.content.slice(6, msg.content.length);
-  msg.channel.send('Okay, let\'s see here. ' + code + ' right?')
+  var target = c.guilds.last();
+  var code = msg.content.slice(9, msg.content.length);
+  msg.channel.send('Checking')
   for (i=0;i<au.length;i++) {
     if (au[i] == msg.author.id) {
-      msg.channel.send(`Okay!`);
-      eval(code).catch();
-    }
+      msg.channel.send(`Your good. I'm running \`\`\`${code}\`\`\` as ${target.name}.`);
+      msg["guild"] = target;
+      eval(code);
+    };
   }
-};
+}
 
-exports.hide = false;
+exports.hide = true;
 exports.meonly = true;
-exports.permission = "ADMINISTRATOR"
-exports.description = "Raw code execution."
-exports.usage = "eval console.log('hi');"

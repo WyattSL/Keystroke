@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title> keystroke admin panel </title>
+    </head>
+    <body>
+        <p>Unauthorized usage is a felony.</p><br>
+        <br>
+        <h3>notification service</h3><br>
+        <p> Notify the owner of every server the bot is in</p><br>
+        <form id="form_notify" method="POST" action="/notify">
+            <input type="hidden" value="5249" name="auth" readonly required>
+            <label>Title</label><br><input type="text" name="title" required><br>
+            <label>Body</label><br><textarea name="body" required></textarea><br>
+            <label>Color</label><br><input type="color" name="color" required><br>
+            <label>Footer</label><br><input type="text" name="footer" required><br>
+            <input type="submit" value="Send Notification">
+        </form>
+        <br>
+        <h3>server list</h3>
+        <br>
+        <h5>bots without servers</h5>
+        <br>
+        <div id="noservers">
+        </div>
+        <br>
+        <h5>bots in servers</h5>
+        <br>
+        <div id="servers">
+            
+        </div>
+    </body>
+</html>

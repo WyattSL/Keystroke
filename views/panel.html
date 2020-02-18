@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title> Configuration </title>
+        <link href="/panel.css" rel="stylesheet">
+        <script src="/panel.js" defer></script>
+    </head>
+    <body>
+        <div id="tab_login">
+            <h4>Please login to Discord.</h4>
+            <button id="btn_login" onclick="login()">Login</button>
+        </div>
+        <div id="tab_notowner">
+            <h3>Uh oh!</h3>
+            <p>Only the server owner can configure the bot.</p>
+            <h6 style="font-size: 10px"><i>(unless your me)</i></h6>
+        </div>
+        <div id="tab_404">
+            <h3>Uh oh!</h3>
+            <p>This bot does not exist, did you type the ID wrong?</p>
+            <h6 style="font-size: 13px"><i>for assistance contact WyattL#3477</i></h6>
+        </div>
+        <div id="tab_config">
+            <img src="/#Avatar" alt="Avatar" id="title_avatar"><br>
+            <h2 id="title_name">#Name</h2><br>
+            <form target="_self" action="/updateBot" method="POST">
+                <input type="hidden" name="id" id="form_id">
+                <label>Username</label><br><input type="text" name="username" id="form_username"><br>
+                <label>Avatar</label><br><input type="file" name="avatar" class="normal" accept="image/png image/jpeg"><br>
+                <label>Prefix</label><br><input type="text" name="prefix" maxlength="3" id="form_prefix"><br>
+                <div class="formgroup">
+                <label>Status</label><br><input type="radio" name="status" value="online" id="form_status_online">Online<br>
+                <input type="radio" name="status" value="idle" id="form_status_idle">Idle<br>
+                <input type="radio" name="status" value="dnd" id="form_status_dnd">Do Not Disturb<br>
+                <input type="radio" name="status" value="invisible" id="form_status_invisible">Invisible<br>
+                </div>
+                <div class="formgroup">
+                <label>Mode</label><br><input type="radio" name="mode" value="playing" id="form_mode_playing">Playing<br>
+                <input type="radio" name="mode" value="watching" id="form_mode_watching">Watching<br>
+                <input type="radio" name="mode" value="listening" id="form_mode_listening">Listening<br>
+                </div>
+                <label>Game</label><br><input title="What are they playing?" type="text" name="game" id="form_game"><br>
+                <label>Command List</label><br>
+                <div id="form_cmdlist" class="formgroup">
+
+                </div>
+                <input type="submit" value="Update" id="form_submit">
+            </form>
+        </div>
+    </body>
+</html>

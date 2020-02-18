@@ -1,0 +1,18 @@
+{
+    "id": "subzeronw",
+    "prefix": ">",
+    "mode": "online",
+    "status": "Playing",
+    "game": "on SubZeroNW",
+    "scid": "",
+    "scto": "",
+    "commands": [
+        "help",
+        "ban",
+        "announce",
+        "new",
+        "close",
+        "say",
+        "report"
+    ]
+  }

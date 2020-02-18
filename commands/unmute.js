@@ -25,3 +25,7 @@ exports.run = function(n, c, msg) {
     .setDescription(`<@${ti}> has been unmuted!`);
     msg.channel.send(e);
 };
+
+exports.usage = "mute @OWNER"
+exports.description = "Permit a user to speak."
+exports.permission = "MUTE_MEMBERS"

@@ -1,23 +1,22 @@
 {
-  "prefix": "$",
-  "owner": "skVixio",
-  "mode": "ONLINE",
-  "status": "WATCHING",
-  "game": "People draw on Art Hub!",
-  "scid": "",
-  "scto": "",
-  "filter": false,
-  "commands": [
-    "help",
-    "ban",
-    "kick",
-    "mute",
-    "say",
-    "announce",
-    "warn",
-    "unmute",
-    "new",
-    "close",
-    "eval"
-  ]
-}
+    "id": "arthub",
+    "prefix": "$",
+    "owner": "Summarizable",
+    "mode": "online",
+    "status": "Watching",
+    "game": "Art Hub!",
+    "scid": "",
+    "scto": "",
+    "commands": [
+      "announce",
+      "kick",
+      "ban",
+      "warn",
+      "warnlist",
+      "new",
+      "close",
+      "say",
+      "mute",
+      "unmute"
+    ]
+  }

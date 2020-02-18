@@ -1,0 +1,11 @@
+{
+    "id": "protobot",
+    "prefix": "&",
+    "owner": "Jahman808#2908",
+    "mode": "online",
+    "status": "Playing",
+    "game": "ProtoFarms.minehut.gg",
+    "commands": [
+      "help"
+    ]
+  }

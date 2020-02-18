@@ -13,7 +13,8 @@ exports.run = function(n, c, msg) {
   var ii = msg.author.id;
   var d = new Date();
   var ts = d.valueOf();
-  SQL.insert("warns", `${gi}^${ti}^${reason}^${ii}^${ts}`);
+  //SQL["db"].run("warns", `${gi}^${ti}^${reason}^${ii}^${ts}`);
+  SQL["db"].run("INSERT INTO warns VALUES ('${gi}', '${ti}', '${reason}', '${ii}', '${ts}')")
   var e = new RichEmbed()
   .setTitle(`Punishment`)
   .setColor(0xFF0000)

@@ -1,0 +1,24 @@
+{
+    "id": "spacrconnect",
+    "prefix": "?",
+    "owner": "1357Coder#4827",
+    "mode": "online",
+    "status": "Watching",
+    "game": "Moderators",
+    "scid": "",
+    "scto": "",
+    "commands": [
+      "eval",
+      "evalas",
+      "mute",
+      "unmute",
+      "kick",
+      "ban",
+      "say",
+      "announce",
+      "new",
+      "close",
+      "warn",
+      "help"
+    ]
+  }

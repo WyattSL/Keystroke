@@ -30,3 +30,7 @@ exports.run = function(n, c, m) {
   if (tu && tu.length === 1) tu.kick();
   return true;
 };
+
+exports.usage = "kick @OWNER stupidity"
+exports.description = "Remove a user from the guild."
+exports.permission = "KICK_MEMBERS"

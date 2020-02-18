@@ -1,0 +1,22 @@
+{
+    "id": "jackisgreat",
+    "prefix": "/",
+    "owner": "JackIsGreat#0001",
+    "mode": "online",
+    "status": "Watching",
+    "game": "Members safely",
+    "scid": "",
+    "scto": "",
+    "commands": [
+        "help",
+        "ban",
+        "kick",
+        "warn",
+        "purge",
+        "warnlist",
+        "mute",
+        "unmute",
+        "eval",
+        "say"
+    ]
+  }

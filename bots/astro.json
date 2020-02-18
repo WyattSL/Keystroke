@@ -1,0 +1,23 @@
+{
+    "id": "astro",
+    "prefix": "astro",
+    "owner": "Brawer Fjuoon#0840",
+    "mode": "online",
+    "status": "Playing",
+    "game": "AstroFarms.minehut.gg",
+    "filter": "true",
+    "commands": [
+      "help",
+      "mute",
+      "eval",
+      "warn",
+      "warnings",
+      "ban",
+      "kick",
+      "unmute",
+      "purge",
+      "new",
+      "close",
+      "report"
+    ]
+  }

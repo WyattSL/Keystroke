@@ -28,6 +28,8 @@ exports.get = function(table, query) {
   });
 };
 
+exports.db = db;
+
 exports.insert = function(table, data) {
   if (!table || !data) return false;
   var i;

@@ -13,3 +13,7 @@ exports.run = function(n, c, msg) {
     msg.channel.send("This is not an ticket channel!")
   }
 };
+
+exports.description = "Close a ticket."
+exports.usage = "close"
+exports.hide = false;

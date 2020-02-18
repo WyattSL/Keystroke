@@ -28,3 +28,7 @@ exports.run = function(n, c, msg) {
     .setDescription(`<@${ti}> has been muted!`);
     msg.channel.send(e);
 };
+
+exports.usage = "mute @OWNER"
+exports.description = "Prevent a user from speaking."
+exports.permission = "MUTE_MEMBERS"

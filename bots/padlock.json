@@ -1,0 +1,28 @@
+{
+    "id": "padlock",
+    "prefix": "$",
+    "owner": "! ^ ! Robo(!EEROR?)#6709",
+    "mode": "online",
+    "status": "listening",
+    "game": "to Your Life",
+    "scid": "",
+    "scto": "",
+    "firerole": "Warden",
+    "staffrole": "Staff",
+    "commands": [
+      "eval",
+      "evalas",
+      "warnings",
+      "report",
+      "mute",
+      "unmute",
+      "kick",
+      "ban",
+      "say",
+      "announce",
+      "new",
+      "close",
+      "warn",
+      "help"
+    ]
+  }

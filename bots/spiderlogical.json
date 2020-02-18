@@ -1,0 +1,24 @@
+{
+    "id": "spiderlogical",
+    "prefix": "-",
+    "owner": "Benedek_Csonka#9791",
+    "mode": "online",
+    "status": "Watching",
+    "game": "The Server",
+    "commands": [
+      "new",
+      "close",
+      "warn",
+      "warnings",
+      "help",
+      "purge",
+      "kick",
+      "ban",
+      "mute",
+      "unmute",
+      "say",
+      "fire",
+      "announce",
+      "report"
+    ]
+  }

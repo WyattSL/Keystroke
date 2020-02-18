@@ -1,0 +1,22 @@
+{
+    "id": "xenos",
+    "prefix": "&",
+    "owner": "Acirar#7049",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Xenos",
+    "commands": [
+      "help",
+      "mute",
+      "eval",
+      "warn",
+      "warnings",
+      "ban",
+      "kick",
+      "unmute",
+      "purge",
+      "new",
+      "close",
+      "suggest"
+    ]
+  }
