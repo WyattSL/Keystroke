@@ -61,13 +61,13 @@ exports.help = function(b, c, msg) {
   e.setFooter(`Job Request by ${d.owner}`);
   e.setTitle('Help')
     e.setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${uptime} | For assistance please contact WyattL#3477`);
-    if (!d.special) {
+    if (true) {
         var commands = d.commands;
         var i;
         for (i = 0; i < commands.length; i++) {
             var cmd = commands[i];
             var command = require("./commands/" + cmd + ".js");
-            if (d.commands.contains(cmd)) {
+            if (d.commands.contains(cmd) || d.special == 'true') {
               if (!command.hide) {
                 var desc = command.description;
                 var usage = command.usage;
@@ -82,7 +82,7 @@ exports.help = function(b, c, msg) {
             }
         };
 
-    } else {
+    } else { // doesnt appear to work, not gonna bother 2 remove on mobile tho
         var cmd_dir = `./commands/`;
         fs.readdir(cmd_dir, function (err, files) {
             if (err) throw err;
