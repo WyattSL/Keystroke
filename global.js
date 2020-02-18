@@ -67,15 +67,17 @@ exports.help = function(b, c, msg) {
         for (i = 0; i < commands.length; i++) {
             var cmd = commands[i];
             var command = require("./commands/" + cmd + ".js");
-            if (!command.hide) {
-              var desc = command.description;
-              var usage = command.usage;
-              if (desc && usage) {
-                desc = desc.replace(/OWNER/g, c.guilds.first().owner.displayName);
-                usage = usage.replace(/OWNER/g, c.guilds.first().owner.displayName);
-                desc = desc.replace(/CHANNEL/g, msg.channel.name);
-                usage = usage.replace(/CHANNEL/g, msg.channel.name);
-                e.addField(`${d.prefix}${usage}`, `${desc}`, false);
+            if (d.commands.contains(cmd)) {
+              if (!command.hide) {
+                var desc = command.description;
+                var usage = command.usage;
+                if (desc && usage) {
+                  desc = desc.replace(/OWNER/g, c.guilds.first().owner.displayName);
+                  usage = usage.replace(/OWNER/g, c.guilds.first().owner.displayName);
+                  desc = desc.replace(/CHANNEL/g, msg.channel.name);
+                  usage = usage.replace(/CHANNEL/g, msg.channel.name);
+                  e.addField(`${d.prefix}${usage}`, `${desc}`, false);
+                }
               }
             }
         };
