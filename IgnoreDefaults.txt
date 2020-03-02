@@ -1,0 +1,5 @@
+# this file turns into .gitignore right before export
+# hope everything works!
+
+bots/*
+config/*
