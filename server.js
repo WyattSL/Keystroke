@@ -14,6 +14,9 @@ const sql = require('./mysql.js');
 const sc = require('./functions/staffchat.js');
 const global = require("./global.js");
 
+const Discord = require('discord.js');
+const Githook = new Discord.WebhookClient("684152365166624891", "mQfoqAQCb65Yfz1KMsxICE23vQgX3w1eLvWQteK5q0fKF5DB5cXsCFLZqbarB243dKJT")
+
 app.use(express.static('public'));
 
 const passport = require("passport")
@@ -121,6 +124,34 @@ app.post("/notify", function(req, res) {
         console.log("Sending notification to guild " + g + ".")
         global["notify_" + g](title, body, color, footer);
     }
+});
+
+app.post("/github", function(req, res) {
+  var type = req.headers["x-github-event"];
+  switch (type) {
+    case "ping":
+      Githook.sendSlackMessage({
+      'username': 'Githook',
+      'attachments': [{
+        'pretext': 'Ping!',
+        'color': '#000000',
+        'footer': 'Pong!',
+        'ts': Date.now() / 1000
+      }]
+    }).catch(console.error);
+    break;
+    default:
+      Githook.sendSlackMessage({
+        'username': 'Githook',
+        'attachments': [{
+          'pretext': type,
+          'color': '#000000',
+          'footer': 'unknown type?',
+          'ts': Date.now() / 1000
+        }]
+      }).catch(console.error);
+  }
+  res.sendStatus(200);
 });
 
 app.get('/', function (req, res) {

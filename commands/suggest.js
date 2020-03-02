@@ -20,13 +20,8 @@ exports.run = function(n, c, m) {
       msg.channel.send("I failed to find a suggest channel. Please contact a administrator.");
   } else {
       channel.send(embed).then(cm => {
-        cm.react(c.emojis.find(e => e.name == "ballot_box_with_check"));
-        cm.react(c.emojis.find(e => e.name == "x"));
-        var filter = (reaction, user) => reaction.emoji.name == ":ballot_box_with_check" || reaction.emoji.name == ":x:";
-        var collector = cm.createReactionCollector(filter, { time: 15000 });
-        collector.on('collect', r => {
-          
-        })
+        cm.react("☑");
+        cm.react("❌");
       });
       msg.channel.send("Your suggestion has been submitted.");
   }

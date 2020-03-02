@@ -1,0 +1,18 @@
+{
+    "id": "gage",
+    "prefix": "gage",
+    "owner": "whatsursnap#0840",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Vibin",
+    "commands": [
+      "help",
+      "warn",
+      "ban",
+      "mute",
+      "warnings",
+      "unmute",
+      "kick",
+      "eval"
+    ]
+  }

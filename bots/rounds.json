@@ -1,0 +1,19 @@
+{
+    "id": "rounds",
+    "prefix": "?",
+    "owner": "Chilkins#2440",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Minecraft",
+    "commands": [
+      "mute",
+      "warn",
+      "warnings",
+      "unmute",
+      "kick",
+      "ban",
+      "report",
+      "config",
+      "eval"
+    ]
+  }

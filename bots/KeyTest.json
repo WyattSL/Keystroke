@@ -1,13 +1,10 @@
 {
   "id": "KeyTest",
-  "prefix": "&",
+  "prefix": "?",
   "owner": "WyattL#3477",
   "mode": "online",
   "status": "playing",
   "game": "Testing a web panel again",
-  "scid": "",
-  "scto": "",
-  "firerole": "",
   "staffrole": "*",
   "special": true,
   "commands": []

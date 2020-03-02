@@ -3,6 +3,22 @@ const gl = require('./global.json');
 const cmdlist = require('./commands.json');
 const fs = require("fs");
 
+const random = require("./functions/random.js");
+
+exports.log = function(msg, ch) {
+  if (process.env.debug) {
+    console.log(`[log] ${msg}`);
+    ch.send(`[LOGGING] ${msg}`)
+  }
+}
+
+function log(msg, ch) {
+  if (process.env.debug == "true") {
+    console.log(`[log] ${msg}`);
+    ch.send(`[LOGGING] ${msg}`)
+  }
+}
+
 var guildList = {};
 var avatarList = {};
 var clientList = {};
@@ -52,37 +68,59 @@ exports.error = function() {
   return gl.maintence;
 }
 
-exports.help = function(b, c, msg) {
+exports.help = async function(b, c, msg) {
   try {
+    var ch = msg.channel;
   const d = require(`./bots/${b}.json`);
   if (!b) return false;
   var uptime = c.uptime;
   var e = new RichEmbed().setColor(0x000000)
-  e.setFooter(`Job Request by ${d.owner}`);
+  if (random.chance(30)) {
+   e.setFooter(`X_X I didn't know this was broken and was very difficult to fix`) 
+  } else {
+    e.setFooter(`Job Request by ${d.owner}`);
+  }
   e.setTitle('Help')
     e.setDescription(`Bot ID ${b} | Ping ${c.ping} | Bot Uptime ${uptime} | For assistance please contact WyattL#3477`);
     if (true) {
-        var commands = d.commands;
-        var i;
-        for (i = 0; i < commands.length; i++) {
-            var cmd = commands[i];
-            var command = require("./commands/" + cmd + ".js");
-            if (d.commands.contains(cmd) || d.special == 'true') {
-              if (!command.hide) {
-                var desc = command.description;
-                var usage = command.usage;
-                if (desc && usage) {
-                  desc = desc.replace(/OWNER/g, c.guilds.first().owner.displayName);
-                  usage = usage.replace(/OWNER/g, c.guilds.first().owner.displayName);
-                  desc = desc.replace(/CHANNEL/g, msg.channel.name);
-                  usage = usage.replace(/CHANNEL/g, msg.channel.name);
-                  e.addField(`${d.prefix}${usage}`, `${desc}`, false);
+      var cmd_dir = "./commands/"
+      await fs.readdir(cmd_dir, function(err, files) {
+          if (err) throw err;
+          if (files) {
+            var commands = files;
+            var i;
+            for (i = 0; i < commands.length; i++) {
+                var cmd = commands[i];
+                var command = require("./commands/" + cmd.split(".js")[0]);
+                if (d.commands.includes(cmd.split(".js")[0]) || d.special == 'true' || d.special == true) {
+                  log('cmd ' + cmd + ' allowed/special', ch);
+                  if (!command.hide) {
+                    var desc = command.description;
+                    var usage = command.usage;
+                    var permission = command.permission
+                    if (!usage) {
+                      usage = cmd;
+                    }
+                    if (!desc) {
+                      desc = "This should be set, but for some reason, isn't."
+                    }
+                    if (desc && usage) {
+                      log('desc: ' + desc + ' : ' + 'usage: ' + usage, ch);
+                      desc = desc.replace(/OWNER/g, c.guilds.first().owner.displayName);
+                      usage = usage.replace(/OWNER/g, c.guilds.first().owner.displayName);
+                      desc = desc.replace(/CHANNEL/g, msg.channel.name);
+                      usage = usage.replace(/CHANNEL/g, msg.channel.name);
+                    }
+                    e.addField(`${d.prefix}${usage}`, `${desc}`, false);
+                  }
                 }
-              }
-            }
-        };
-
-    } else { // doesnt appear to work, not gonna bother 2 remove on mobile tho
+              };
+            msg.channel.send(e);
+          } else {
+            throw "global.js stack trace : during help : no command files found";
+          }
+        });
+    } else {
         var cmd_dir = `./commands/`;
         fs.readdir(cmd_dir, function (err, files) {
             if (err) throw err;
@@ -96,9 +134,8 @@ exports.help = function(b, c, msg) {
             };
         });
     }
-  return e;
   } catch(err) {
-    return `stack trace error @ global.js whilst executing help function with data ${err}`
+    throw `stack trace error @ global.js whilst executing help function with data ${err}`
   }
 }
 
@@ -108,6 +145,8 @@ exports.helpcmd = function(n, c, msg, cmd) {
     var d = require(`./bots/${n}.json`);
     var desc = command.description;
     var usage = command.usage;
+    var permission = command.permission;
+    if (!permission) permission = "Everyone can use it!"
     if (desc && usage) {
       desc = desc.replace(/OWNER/g, c.guilds.first().owner.displayName);
       usage = usage.replace(/OWNER/g, c.guilds.first().owner.displayName);
@@ -117,6 +156,7 @@ exports.helpcmd = function(n, c, msg, cmd) {
     var embed = new RichEmbed;
     embed.addField("Description", desc, true);
     embed.addField("Usage", d.prefix + usage, true);
+    embed.addField("Permission", d.permission, true);
     embed.setColor(0x000000);
     var cmdUpper = `${cmd.slice(0, 1).toUpperCase()}${cmd.slice(1, cmd.length)}`;
     embed.setTitle(cmdUpper);

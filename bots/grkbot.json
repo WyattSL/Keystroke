@@ -1,0 +1,17 @@
+{
+    "id": "grkbot",
+    "prefix": "[]",
+    "owner": "Ability#2878",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Minecraft",
+    "commands": [
+      "help",
+      "ban",
+      "kick",
+      "mute",
+      "unmute",
+      "eval",
+      "config"
+    ]
+  }

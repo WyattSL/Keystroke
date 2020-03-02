@@ -9,6 +9,7 @@ const global = require('./global.js');
 const mysql = require('./mysql.js');
 const perms = require('./perms.js');
 const fs = require('fs');
+const config = require("./functions/config.js")
 
 // configuraation
 var bot_dir = "./bots/";
@@ -20,7 +21,9 @@ function createBot(id) {
   var bj = require(`./bots/${id}`); // require the JSON file
   
   var client = new Discord.Client(); // create a new client instance
-  client.login(process.env["TOK_" + id.split('.json')[0]]).catch(); // login to the bot
+  client.login(process.env["TOK_" + id.split('.json')[0]]).catch(err => {
+    console.warn("failed to login to " + id);
+  }); // login to the bot
   client.on('ready', () => {
     fs.readdir('./functions/', function(err, files) {
       if (err) throw err;
@@ -41,7 +44,18 @@ function createBot(id) {
   });
   client.on('message', (msg) => { // when a message is sent
     if (msg.author.bot) return; // ensure message was sent by a user
-    var prefix = bj.prefix.toLowerCase(); // get the bot's prefix
+    var prefix = config.get(id.split(".json")[0], "prefix");
+    if (!prefix) prefix = bj.prefix.toLowerCase(); // get the bot's prefix
+    client.prefix = prefix;
+    client.firerole = bj.firerole;
+    client.staffrole = bj.staffrole;
+    client.id = bj.id;
+    client.owner = bj.owner;
+    client.commands = bj.commands;
+    client.swearfilter = bj.swearfilter;
+    client.mode = bj.mode;
+    client.presence = bj.status;
+    client.game = bj.game;
     if (!msg.content.startsWith(prefix)) return; // ensure the message starts with the prefix
     try {
       var cmd = require(`./commands/${msg.content.split(prefix)[1].split(' ')[0]}.js`); // load the command
@@ -81,6 +95,14 @@ function createBot(id) {
       guild.leave();
     }
   });
+  client.on('guildMemberAdd', (member) => {
+    if (config.get(id.split(".json")[0], "autorole")) {
+      var role = member.guild.roles.find(r => r.name == config.get(id.split(".json")[0], "autorole"));
+      if (role) {
+        member.addRole(role);
+      }
+    }
+  })
 };
 
 fs.readdir(bot_dir, function(err, files) { // Read all files in the bot directory

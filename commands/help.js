@@ -10,7 +10,8 @@ exports.run = function(n, c, msg) {
     global.helpcmd(n, c, msg, cmd);
   } else {
     try {
-      msg.channel.send(global.help(n, c, msg))
+      //msg.channel.send(global.help(n, c, msg))
+      global.help(n, c, msg);
     } catch(err) {
       msg.channel.send(`stack trace error @ help.js whilst sending global help message`)
     }
