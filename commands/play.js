@@ -30,10 +30,14 @@ exports.run = function(name, client, msg) {
         e.setThumbnail(video.thumbnail);
         e.setAuthor(e.author.name, client.user.avatarURL, e.author.ref);
         msg.channel.send(e);
+        msg.member.voiceChannel.join().then(connection => {
+            var stream = ytdl(video.link, {quality: 'highestaudio'})
+            connection
+        });
       }
     });
   }
 };
 
 exports.usage = "play (id/search query: youtube)";
-exports.description = "Play a youtube video. Must be categorized as 'music'.";
+exports.description = "Play a youtube video.";
