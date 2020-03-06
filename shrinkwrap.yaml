@@ -1,6 +1,7 @@
 dependencies:
   '@discordjs/opus': 0.1.0
   body-parser: 1.19.0
+  bufferutil: 4.0.1
   discord.js: 11.6.1
   express: 4.17.1
   express-session: 1.17.0
@@ -136,6 +137,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
+  /bufferutil/4.0.1:
+    dependencies:
+      node-gyp-build: 3.7.0
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-xowrxvpxojqkagPcWRQVXZl0YXhRhAtBEIq3VoER1NH5Mw1n1o0ojdspp+GS2J//2gCVyrzQDApQ4unGF+QOoA==
   /bytes/3.1.0:
     dev: false
     engines:
@@ -753,6 +761,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ASCL5U13as7HhOExbT6OlWJJUV/lLzL2voOSP1UVehpRD8FbSrSDjfScK/KwAvVTI5AS6r4VwbOMlIqtvRidnA==
+  /node-gyp-build/3.7.0:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-L/Eg02Epx6Si2NXmedx+Okg+4UHqmaf3TNcxd50SF9NQGcJaON3AtU++kax69XV7YWz4tUspqZSAsVofhFKG2w==
   /node-pre-gyp/0.11.0:
     dependencies:
       detect-libc: 1.0.3
@@ -1391,6 +1404,7 @@ shrinkwrapVersion: 3
 specifiers:
   '@discordjs/opus': ^0.1.0
   body-parser: ^1.19.0
+  bufferutil: ^4.0.1
   discord.js: ^11.6.1
   express: ^4.17.1
   express-session: ^1.17.0
