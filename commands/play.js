@@ -21,8 +21,15 @@ exports.run = function(name, client, msg) {
         msg.channel.send(":x: I did not find anything under that query.");
         return true;
       } else {
+        var video = results[0];
         var e = new RichEmbed;
-        e
+        e.setTitle(video.title)
+        e.setDescription(video.description)
+        e.setUrl(video.link)
+        e.setFooter(`Uploaded ${video.uploaded_at}`});
+        e.setThumbnail(video.thumbnail);
+        e.setAuthor(e.author.name, client.user.avatarURL, e.author.ref);
+        msg.channel.send(e);
       }
     });
   }
