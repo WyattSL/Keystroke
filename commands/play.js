@@ -1,5 +1,6 @@
 const ytdl = require('ytdl');
 const ytsr = require('ytsr');
+const {Client, RichEmbed} = require('discord.js');
 
 exports.run = function(name, client, msg) {
   var args = msg.content.split(" ").shift();
@@ -17,9 +18,11 @@ exports.run = function(name, client, msg) {
         console.error(err);
         return false;
       } elseif (!results) {
-      
+        msg.channel.send(":x: I did not find anything under that query.");
+        return true;
       } else {
-      
+        var e = new RichEmbed;
+        e
       }
     });
   }
