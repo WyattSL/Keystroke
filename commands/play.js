@@ -8,7 +8,7 @@ exports.run = function(name, client, msg) {
   if (client.playingMusic) {
     msg.channel.send(":x: I am busy playing music in another channel, sorry.");
     return false;
-  } elseif (!msg.member.voiceChannel) {
+  } else if (!msg.member.voiceChannel) {
     msg.channel.send(":x: You are not in a music channel!");
     return false;
   } else {
@@ -17,7 +17,7 @@ exports.run = function(name, client, msg) {
         msg.channel.send("An error has occured. Please notify me (WyatL#347) with info YTSR:RESULTERROR:" + err);
         console.error(err);
         return false;
-      } elseif (!results) {
+      } else if (!results) {
         msg.channel.send(":x: I did not find anything under that query.");
         return true;
       } else {
@@ -26,18 +26,14 @@ exports.run = function(name, client, msg) {
         e.setTitle(video.title)
         e.setDescription(video.description)
         e.setUrl(video.link)
-        e.setFooter(`Uploaded ${video.uploaded_at}`});
+        e.setFooter(`Uploaded ${video.uploaded_at}`);
         e.setThumbnail(video.thumbnail);
         e.setAuthor(e.author.name, client.user.avatarURL, e.author.ref);
         msg.channel.send(e);
-        msg.member.voiceChannel.join().then(connection => {
-            var stream = ytdl(video.link, {quality: 'highestaudio'})
-            connection
-        });
       }
     });
   }
 };
 
 exports.usage = "play (id/search query: youtube)";
-exports.description = "Play a youtube video.";
+exports.description = "Play a youtube video. Must be categorized as 'music'.";

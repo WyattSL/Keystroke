@@ -11,6 +11,7 @@ dependencies:
   request: 2.88.2
   sqlite3: 4.1.1
   ytdl-core: 2.0.0
+  ytsr: 0.1.10
 packages:
   /@discordjs/opus/0.1.0:
     dependencies:
@@ -629,7 +630,7 @@ packages:
       integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
   /m3u8stream/0.6.5:
     dependencies:
-      miniget: 1.6.1
+      miniget: 1.7.0
       sax: 1.2.4
     dev: false
     engines:
@@ -673,12 +674,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
-  /miniget/1.6.1:
+  /miniget/1.7.0:
     dev: false
     engines:
-      node: '>=8'
+      node: '>=10'
     resolution:
-      integrity: sha512-I5oBwZmcaOuJrjQn7lpS29HM+aAZDbzKbX5ouxVyhFYdg6fA6YKOTwOCgzZQwlHuMek3FlCxz6eNrd4pOXbwOA==
+      integrity: sha512-yrgaDSMRzrfYTkudB4Y6xK8pCb7oAH2bvfv6iPY2m6CedZfs9yK4b/ofh0Vzv08hCYXH/HHkoS8an6fkWtOAQA==
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -1391,13 +1392,21 @@ packages:
     dependencies:
       html-entities: 1.2.1
       m3u8stream: 0.6.5
-      miniget: 1.6.1
+      miniget: 1.7.0
       sax: 1.2.4
     dev: false
     engines:
       node: '>=10'
     resolution:
       integrity: sha512-cYdcxXhgldJeOaWaN/mxT+j07XFZdR+qUqfz5eddx4WcyWCha66FfJvmQBOPqyQo1TCyj/IkgZqdGADWlNdTcQ==
+  /ytsr/0.1.10:
+    dependencies:
+      html-entities: 1.2.1
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-9wq0TiFejj6T5t9WXx/7Uw7Pix6vtXq3nd7BbPvz3BwUjJ4rdW4maylj1/sW+AUaSNgZgVbVngH/Y1a7V1kzsA==
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -1413,4 +1422,5 @@ specifiers:
   requ: ^1.0.3
   request: ^2.88.2
   sqlite3: ^4.1.1
-  ytdl-core: ^2.0.0
+  ytdl-core: 2.0.0
+  ytsr: 0.1.10
