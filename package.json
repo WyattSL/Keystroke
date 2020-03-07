@@ -12,11 +12,12 @@
     "requ": "^1.0.3",
     "request": "^2.88.2",
     "sqlite3": "^4.1.1",
-    "ytdl-core": "^2.0.0",
+    "ytdl-core": "2.0.0",
     "@discordjs/opus": "^0.1.0",
     "bufferutil": "^4.0.1",
-    "ytdl-core": "2.0.0",
-    "ytsr": "0.1.10"
+    "ytsr": "0.1.10",
+    "ffmpeg": "^0.0.4",
+    "opusscript": "^0.0.7"
   },
   "description": "A simple Node app with SQLite as a database management system, instantly up and running.",
   "engines": {
