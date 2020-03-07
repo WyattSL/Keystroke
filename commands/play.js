@@ -1,4 +1,4 @@
-const ytdl = require('ytdl');
+const ytdl = require('ytdl-core');
 const ytsr = require('ytsr');
 const {Client, RichEmbed} = require('discord.js');
 
