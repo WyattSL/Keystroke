@@ -1,0 +1,18 @@
+{
+    "id": "dbcraft",
+    "prefix": "-",
+    "owner": "Atp₩asHere#8326",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Minecraft",
+    "commands": [
+      "help",
+      "config",
+      "eval",
+      "new",
+      "close",
+      "play",
+      "stop",
+      "memes"
+    ]
+  }

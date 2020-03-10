@@ -49,6 +49,7 @@ function createBot(id) {
     client.prefix = prefix;
     client.firerole = bj.firerole;
     client.staffrole = bj.staffrole;
+    client.name = bj.id;
     client.id = bj.id;
     client.owner = bj.owner;
     client.commands = bj.commands;

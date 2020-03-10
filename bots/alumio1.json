@@ -1,0 +1,14 @@
+{
+    "id": "alumio1",
+    "prefix": "!",
+    "owner": "yoiiyl#0782",
+    "mode": "online",
+    "status": "Watching",
+    "game": "The world go round",
+    "commands": [
+      "play",
+      "stop",
+      "help",
+      "eval"
+    ]
+  }

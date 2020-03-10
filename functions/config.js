@@ -44,6 +44,7 @@ exports.set = function(bot, key, value) {
 }
 
 exports.get = function(bot, key) {
+  if (!bot || !key) return true;
   var file = `./config/${bot}.json`;
   if (!fs.existsSync(file)) {
     var data = fs.readFileSync(`./configdefaults.json`);

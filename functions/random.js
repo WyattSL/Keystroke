@@ -12,3 +12,9 @@ exports.chance = function(c) {
     return false;
   }
 }
+
+exports.rmax = function(max) {
+  var r = Math.floor(Math.random() * max) + 1;
+  console.log(`[R.M] ${r}/${max}`);
+  return r;
+}

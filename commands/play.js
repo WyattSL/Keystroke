@@ -1,14 +1,21 @@
 const ytdl = require('ytdl-core');
 const ytsr = require('ytsr');
 const {Client, RichEmbed} = require('discord.js');
+//const config = require('./functions/config.js');
 
 exports.run = function(name, client, msg) {
   var args = msg.content.split(" ");
   args.shift();
   var q = args.join(" ");
   if (client.playingMusic == {} || client.playingMusic || client.mpbusy) {
-    msg.channel.send(":x: I am busy playing music in another channel, sorry.");
-    return false;
+    if (client.playingMusic.requester == msg.author.username) {
+      msg.channel.send(":white_check_mark: Changing...");
+      client.musicEnd();
+      this.run(name, client, msg);
+    } else {
+      msg.channel.send(":x: I am busy playing music in another channel, sorry.");
+      return false;
+    }
   } else if (!msg.member.voiceChannel) {
     msg.channel.send(":x: You are not in a music channel!");
     return false;
@@ -41,13 +48,13 @@ exports.run = function(name, client, msg) {
           return false;
         } else {            
           msg.member.voiceChannel.join().then(con => {
-            var dispatch = con.playStream(s);
-            client.mpbusy = true;
-            var data = {}
-            client.md = dispatch;
-                          data["video"] = video;
+              var dispatch = con.playStream(s);
+              client.mpbusy = true;
+              var data = {}
+              client.md = dispatch;
+              data["video"] = video;
               data.video["query"] = q;
-              data["requester"] = msg.member;
+              data["requester"] = msg.author.username;
               data["dispatch"] = dispatch;
               data["connection"] = con;
               client["playingMusic"] = data;
@@ -92,3 +99,4 @@ exports.run = function(name, client, msg) {
 };
 
 exports.usage = "play (id/search query: youtube)";
+exports.description = "Play music."
