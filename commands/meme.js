@@ -15,7 +15,7 @@ exports.run = async function(name, client, msg) {
   }
   var rdata = await got.get(URL);
   var body = rdata.body;
-  data = JSON.parse(body);
+  var data = JSON.parse(body);
   //var r = random.rmax(data.length);
   //console.log(r);
   //var turl = data[r].url
@@ -25,5 +25,5 @@ exports.run = async function(name, client, msg) {
   ]});
 };
 
-exports.usage = "kick @OWNER stupidity";
-exports.description = "Remove a user from the guild.";
+exports.usage = "meme";
+exports.description = "Fetch a random meme.";
