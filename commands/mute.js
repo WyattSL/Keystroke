@@ -5,7 +5,7 @@ const perms = require('../perms.js');
 const global = require('../global.js');
 
 
-exports.run = function(n, c, msg) {
+exports.run = async function(n, c, msg) {
    if (!perms.checkPerm("MUTE_MEMBERS", msg.member, msg.channel)) return;
     var tu = msg.mentions.members.first();
     if (!tu) {
@@ -15,7 +15,7 @@ exports.run = function(n, c, msg) {
     var ii = msg.author.id;
     var tr = msg.guild.roles.find(r => r.name === "Muted");
     if (!tr) {
-      msg.guild.createRole({ name: "Muted", hoist: false, mentionable: false, permissions: 68224000 }, "Mute Setup");
+      await msg.guild.createRole({ name: "Muted", hoist: false, mentionable: false, permissions: 68224000 }, "Mute Setup");
       msg.guild.owner.send('I have automatically created a role named "Muted". Muted players will have this role. It currently has basic permissions, you should verify these.');
       var tr = msg.guild.roles.find(r => r.name === "Muted");
     };

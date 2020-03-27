@@ -21,6 +21,10 @@ function createBot(id) {
   var bj = require(`./bots/${id}`); // require the JSON file
   
   var client = new Discord.Client(); // create a new client instance
+  if (bj.disable) {
+    console.log(`Keystroke ${id} Disabled.`);
+    return;
+  }
   client.login(process.env["TOK_" + id.split('.json')[0]]).catch(err => {
     console.warn("failed to login to " + id);
   }); // login to the bot
@@ -32,8 +36,10 @@ function createBot(id) {
         var i;
         for (i=0;i<files.length;i++) {
           try {
-            var func = require("./functions/" + files[i])
-            func.run(client, id)
+            var func = require("./functions/" + files[i]);
+            if (!func.disabled) {
+              func.run(client, id)
+            }
           } catch(err) {
             console.warn(`Error loading function: ${files[i]} [${err}]`)
           }
@@ -45,6 +51,7 @@ function createBot(id) {
   client.on('message', (msg) => { // when a message is sent
     if (msg.author.bot) return; // ensure message was sent by a user
     var prefix = config.get(id.split(".json")[0], "prefix");
+    if (client.ignoreCmd && client.ignoreCmd[msg.content.slice(1)]) return;
     if (!prefix) prefix = bj.prefix.toLowerCase(); // get the bot's prefix
     client.prefix = prefix;
     client.firerole = bj.firerole;
@@ -57,11 +64,11 @@ function createBot(id) {
     client.mode = bj.mode;
     client.presence = bj.status;
     client.game = bj.game;
-    if (!msg.content.startsWith(prefix)) return; // ensure the message starts with the prefix
+    if (!msg.content.startsWith(prefix) && !msg.content.startsWith("keystroke:")) return; // ensure the message starts with the prefix
     try {
       var cmd = require(`./commands/${msg.content.split(prefix)[1].split(' ')[0]}.js`); // load the command
     } catch(err) {
-      if (err !== "Error: Cannot find module './commands/" + msg.content.split(prefix)[1].split(' ')[0] + ".js'") {
+      if (err && !err.toString().includes("Error: Cannot find module")) {
         console.warn(err)
         msg.channel.send("WOW! You just encountered the rare error, when a command module exists but requiring it results in an error! Please tell me.")
       } else {
@@ -102,6 +109,22 @@ function createBot(id) {
       if (role) {
         member.addRole(role);
       }
+    }
+    if (config.get(id.split(".json")[0], "joinmsg") && config.get(id.split(".json")[0], "joinmsgchannel")) {
+      var msg = config.get(id.split(".json")[0], "joinmsg")
+      var channel = member.guild.channels.find(ch => ch.name.includes(config.get(id.split(".json")[0], "joinmsgchannel")));
+      if (!channel) return false;
+      msg = msg.replace(/@user/g, member.toString())
+      channel.send(msg);
+    }
+  })
+  client.on('guildMemberRemove', (member) => {
+    if (config.get(id.split(".json")[0], "leavemsg") && config.get(id.split(".json")[0], "leavemsgchannel")) {
+      var msg = config.get(id.split(".json")[0], "leavemsg")
+      var channel = member.guild.channels.find(ch => ch.name.includes(config.get(id.split(".json")[0], "leavemsgchannel")));
+      if (!channel) return false;
+      msg = msg.replace(/@user/g, member.toString())
+      channel.send(msg);
     }
   })
 };

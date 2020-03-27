@@ -1,54 +1,34 @@
-<!DOCTYPE>
 <html>
-    <head>
-        <title> Keystroke Bots </title>
-        <link rel="stylesheet" href="/bots.css">
-        <script src="/bots.js" nodefer></script>
-    </head>
-    <body>
-        <form method="GET" action="/newBot" id="form">
-            <div class="cate">
-            <label> YOUR Discord Username </label><input type="text" id="input_discord" name="discord" placeholder="John#8342" required>
-            <br><label> Bot Username </label><input type="text" id="input_username" name="username" placeholder="Dyno" required>
-            <br><label> Bot Avatar (Optional)</label><input type="url" name="avatar" id="input_url">
-            <br><label> Bot Prefix </label><input type="text" name="prefix" id="input_prefix" maxlength="4" placeholder="?" required>
-            <br><label> Bot Status </label><select name="status" required>
-                <option value="online">Online/Green</option>
-                <option value="idle">Idle/Moon</option>
-                <option value="dnd">Do Not Disturb/Stop Sign</option>
-                <option value="invisible">Invisible/Appearing Offline</option>
-            </select>
-            <br><label> Bot Game </label><input name="text" name="game" maxlength="25" placeholder="Minecraft!">
-            <br><label> Game Mode </label><select name="mode">
-                <option value="playing">Playing ...</option>
-                <option value="watching">Watching...</option>
-                <option value="streaming">Streaming...</option>
-                <option value="listening">Listening...</option>
-            </select>
-            </div>
-            <div class="cate">
-                <label>
-                    <b>Commands!</b>
-                </label>
-            <br><input type="checkbox" name="cmd:kick" value="yes"><label>kick</label>
-            <br><input type="checkbox" name="cmd:ban" value="yes"><label>ban</label>
-            <br><input type="checkbox" name="cmd:warn" value="yes"><label>warn</label>
-            <br><input type="checkbox" name="cmd:warnings" value="yes"><label>warnings</label>
-            <br><input type="checkbox" name="cmd:mute" value="yes"><label>mute</label>
-            <br><input type="checkbox" name="cmd:unmute" value="yes"><label>unmute</label>
-            <br><input type="checkbox" name="cmd:say" value="yes"><label>say</label>
-            <br><input type="checkbox" name="cmd:announce" value="yes"><label>announce</label>
-            <br><input type="checkbox" name="cmd:new" value="yes"><label>new ticket</label>
-            <br><input type="checkbox" name="cmd:close" value="yes"><label>close ticket</label>
-            </div>
-            <br><input type="submit" class="button" value="Submit">
-            <input type="reset" class="buttonred" value="Reset">
-        </form>
-        <div id="success">
-            <p>Okay, it <i>should</i> of been automatically created.</p>
-            <p>Basically what happens is, once my website receives the form, it asks discord to create the bot (the unoffical way), and then gets my stuff ready to host the bot, all automatically.</p>
-            <p>This isn't foolproof and probably doesn't work, if that's the case, you may contact me <a href="mailto:wyattlipscomb20@gmail.com">Here</a> via E-Mail, or contact me on discord at WyattL#3477</p>
-            <p>You should be able to get your bot <a href="">here.</a></p>
+  <head>
+    <title>Keystroke</title>
+    <link href="/bots.css" rel="stylesheet" />
+    <script src="/bots.js" defer></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="spacer"></div>
+      <div class="category static">
+        <div class="option">
+          <label class="btnlabel">Swear Filter</label>
+          <label class="switch">
+            <input type="checkbox" class="swearfilter" />
+            <span class="slider round"></span>
+          </label>
         </div>
-    </body>
+      </div>
+      <div class="category hidden">
+        <p>
+          hi, i'm a hidden category
+        </p>
+      </div>
+      <div class="category shown">
+        <p>
+          hi, i'm a shown category
+        </p>
+      </div>
+      <div class="spacer"></div>
+    </main>
+    <footer></footer>
+  </body>
 </html>

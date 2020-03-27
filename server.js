@@ -128,6 +128,7 @@ app.post("/notify", function(req, res) {
 
 app.post("/github", function(req, res) {
   var type = req.headers["x-github-event"];
+  var data = JSON.parse(req.body);
   switch (type) {
     case "ping":
       Githook.sendSlackMessage({
@@ -140,6 +141,17 @@ app.post("/github", function(req, res) {
       }]
     }).catch(console.error);
     break;
+    case "push":
+      var message = ""
+      Githook.sendSlackMessage({
+        'username': data.sender.login,
+        'attachments': [{
+          'pretext': data.commits,
+          'color': '#000000',
+          'footer': 'Push',
+          'ts': Date.now() / 1000
+        }]
+      })
     default:
       Githook.sendSlackMessage({
         'username': 'Githook',
@@ -178,7 +190,7 @@ exports.srv = function(client, config) {
   });
 };
 
-app.get('/bots', function(req, res) {
+app.get('/panel/*', function(req, res) {
     res.sendFile(__dirname + '/views/bots.html');
 });
 
@@ -204,13 +216,13 @@ app.get("/newBot", function(req, res) {
     });
     var config = {}
     config.name = user;
-    config.owner = discord;
+    config.owner = duser;
     config.prefix = prefix;
     config.mode = status;
     config.status = mode;
     var name = user.replace(" ", "_").replace(" ", "_").replace(" ", "_").replace(" ", "_").replace(" ", "_").replace(" ", "_").replace(" ", "_");
     name=name.replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "").replace(".", "");
-    fs.writeFile(name, config.stringify(), 'utf8', callback);
+    fs.writeFile(name, config.stringify(), 'utf8');
 });
 
 app.get('/web/*', function (req, res) {
@@ -235,11 +247,25 @@ app.get('/serv', function (req, res) {
     var id = app.get('/')
 });
 
+/*
 app.get('/bot/*', function (req, res) {
     var bn = req.url.split('/')[2];
     console.log(bn);
     var rl = process.env["INV_" + bn];
     res.redirect(rl);
+});
+*/
+
+app.get("/bot/*", function(req, res) {
+  var bn = req.url.split("/")[2];
+  if (!bn) {
+    res.sendStatus(404);
+  }
+  var c = global.clientList[bn]
+  if (!c || !c.invite) {
+    res.sendStatus(404);
+  }
+  res.redirect(c.invite);
 });
 
 app.get("/close", function(req, res) {

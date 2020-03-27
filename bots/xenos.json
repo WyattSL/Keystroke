@@ -17,6 +17,9 @@
       "purge",
       "new",
       "close",
-      "suggest"
+      "suggest",
+      "play",
+      "stop",
+      "config"
     ]
   }

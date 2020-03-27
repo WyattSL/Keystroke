@@ -1,0 +1,15 @@
+{
+  "id": "mby",
+  "prefix": "*",
+  "owner": "ayy lmao#7801",
+  "mode": "online",
+  "status": "Playing",
+  "game": "Music",
+  "commands": [
+    "play",
+    "stop",
+    "eval",
+    "config",
+    "help"
+  ]
+}

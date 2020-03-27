@@ -7,5 +7,5 @@ exports.run = function(name, client, msg) {
   }
 }
 
-exports.usage = "!stop";
+exports.usage = "stop";
 exports.description = "Stop the current dispatch.";

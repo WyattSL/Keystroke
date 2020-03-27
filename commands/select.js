@@ -9,17 +9,20 @@ const au = require('../authorizedUsers.json');
 
 exports.run = function(n, c, msg) {
   var i;
-  var code = msg.content.slice(6, msg.content.length);
-  msg.channel.send("\`\`\`js\n" + code + "\`\`\`")
+  var code = msg.content.slice(8, msg.content.length);
+  msg.channel.send("\`\`\`sql\n" + code + "\`\`\`")
   try {
-    eval(code)
+    SQL.db.select(code, function(err, results) {
+      if (err) msg.channel.send("\`\`\`fix\n" + err + "\`\`\``");
+      if (results[0]) msg.channel.send("\`\`\`json\n" + results + "\`\`\`");
+    });
   } catch(err) {
     msg.channel.send(err)
   }
 };
 
 exports.hide = false;
-exports.owneronly = true;
+exports.omeonly = true;
 exports.permission = "ADMINISTRATOR"
 exports.description = "Raw code execution."
 exports.usage = "eval console.log('hi');"

@@ -39,6 +39,9 @@ exports.ready = function(b, c) {
     } else {
       console.log(`Keystroke ${d.id} Bot Ready | Logged in as ${c.user.username}#${c.user.discriminator} with ${c.guilds.array().length} servers: ${c.guilds.array()}`);
     };
+    c.generateInvite(8).then(invite => {
+      c.invite = invite;
+    })
     guildList[b.split(".")[0]] = c.guilds.first();
     avatarList[b.split(".")[0]] = c.user.displayAvatarURL;
     clientList[b.split(".")[0]] = c;

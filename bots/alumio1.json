@@ -1,6 +1,6 @@
 {
     "id": "alumio1",
-    "prefix": "!",
+    "prefix": "?",
     "owner": "yoiiyl#0782",
     "mode": "online",
     "status": "Watching",
@@ -9,6 +9,7 @@
       "play",
       "stop",
       "help",
-      "eval"
+      "eval",
+      "config"
     ]
   }

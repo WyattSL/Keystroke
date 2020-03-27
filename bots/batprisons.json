@@ -1,0 +1,31 @@
+{
+    "id": "batprisons",
+    "prefix": ":",
+    "owner": "๖̶̶̶ۣۣۜۜ͜ζ͜͡Anonymous2™#1161",
+    "mode": "online",
+    "status": "Playing",
+    "game": "BatPrisons",
+    "commands": [
+      "help",
+      "config",
+      "warn",
+      "kick",
+      "ban",
+      "unban",
+      "mute",
+      "unmute",
+      "play",
+      "stop",
+      "announce",
+      "new",
+      "close",
+      "eval",
+      "fire",
+      "meme",
+      "purge",
+      "slowmode",
+      "say",
+      "suggest",
+      "report"
+    ]
+  }

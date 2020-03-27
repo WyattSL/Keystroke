@@ -1,0 +1,21 @@
+{
+    "id": "todox",
+    "prefix": ".",
+    "owner": "Stuudium#2367",
+    "mode": "idle",
+    "status": "Watching",
+    "game": "Over Todox",
+    "commands": [
+      "play",
+      "stop",
+      "help",
+      "eval",
+      "config",
+      "ban",
+      "kick",
+      "warn",
+      "mute",
+      "unmute",
+      "meme"
+    ]
+  }

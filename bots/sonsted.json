@@ -1,0 +1,13 @@
+{
+    "id": "sonsted",
+    "prefix": "/",
+    "owner": "Sonsted#6757",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Minecraft",
+    "commands": [
+      "help",
+      "config",
+      "eval"
+    ]
+  }

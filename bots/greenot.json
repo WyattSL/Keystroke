@@ -1,0 +1,22 @@
+{
+    "id": "greenot",
+    "prefix": "gn.",
+    "owner": "Bogdan217n#3851",
+    "mode": "online",
+    "status": "Playing",
+    "game": "Minecraft",
+    "commands": [
+      "new",
+      "close",
+      "play",
+      "stop",
+      "mute",
+      "warn",
+      "unmute",
+      "kick",
+      "ban",
+      "report",
+      "config",
+      "eval"
+    ]
+  }
